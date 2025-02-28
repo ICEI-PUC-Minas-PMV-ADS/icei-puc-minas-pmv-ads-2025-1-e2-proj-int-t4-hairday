@@ -1,27 +1,25 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Marcar um horário com um cabeleireiro ou barbeiro nem sempre é uma tarefa simples. Muitas pessoas enfrentam dificuldades para encontrar um horário disponível, precisam entrar em contato diretamente com o profissional e, em alguns casos, acabam lidando com imprevistos e agendamentos confusos. Para os profissionais, a falta de um sistema organizado pode resultar em horários ociosos, conflitos na agenda e perda de clientes.
+
+Com a crescente digitalização dos serviços, um sistema eficiente de agendamento pode transformar essa experiência, oferecendo praticidade tanto para clientes quanto para profissionais. Uma plataforma que permita visualizar horários disponíveis, marcar consultas de forma rápida e receber confirmações automáticas pode melhorar significativamente a organização e a satisfação de ambos os lados.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+O principal desafio enfrentado atualmente é a ausência de um meio digital eficiente para conectar clientes e profissionais de beleza. A marcação de horários ainda depende, em grande parte, de mensagens, ligações e anotações manuais, o que pode gerar erros e falta de controle.
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+Para resolver essa questão, surge o HairDay, uma aplicação web projetada para simplificar o agendamento de serviços de cabeleireiros e barbeiros. Com uma interface intuitiva e um sistema automatizado, a plataforma visa otimizar o tempo dos profissionais e oferecer mais comodidade para os clientes, garantindo uma experiência mais organizada e eficiente.
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+O objetivo geral deste projeto é a criação de uma aplicação web acessível e intuitiva que facilite o agendamento de serviços de cabeleireiros e barbeiros, proporcionando mais organização para os profissionais e comodidade para os clientes.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Como objetivos específicos, podemos destacar:
+
+ .Desenvolver uma plataforma de uso simplificado que permita aos clientes visualizar horários disponíveis e agendar serviços de forma rápida e prática;
+ .Automatizar a gestão de agenda dos profissionais, reduzindo falhas, horários ociosos e conflitos na programação;
+ .Oferecer notificações automáticas para lembrar os clientes de seus compromissos e evitar faltas;
+ .Criar um sistema que possibilite a fidelização dos clientes por meio de um histórico de atendimentos e preferências personalizadas.
 
 ## Justificativa
 
