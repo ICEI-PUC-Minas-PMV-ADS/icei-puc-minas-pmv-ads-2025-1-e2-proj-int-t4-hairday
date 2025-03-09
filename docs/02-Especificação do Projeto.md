@@ -100,9 +100,9 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |RE-07| O conteúdo da aplicação deve respeitar princípios éticos, não permitindo informações ofensivas, discriminatórias ou contrárias às normas estabelecidas. |
  
 ## Diagrama de Casos de Uso
+![image](https://github.com/user-attachments/assets/67ce1506-3889-44b9-bd87-ab79a5afe987)
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
-
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
 
 > **Links Úteis**:
