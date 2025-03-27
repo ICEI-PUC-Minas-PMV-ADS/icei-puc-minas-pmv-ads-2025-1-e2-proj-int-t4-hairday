@@ -39,10 +39,15 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
 |João Silva |   Agendar horários de maneira mais rápida     |        Agendar cortes rápidos sem esperar    |
+|           |remarcar meu horário de corte com facilidade pelo sistema|  evitar perder tempo ligando .     |
 |Carlos sousa     |     Escolha do profissional preferido.           | Manter o hábito de cortar com o mesmo profissional. |
-|Pedro Oliveira   |  Notificação automática antes do horário agendado.|Receber lembretes para não esquecer o compromisso |      
+|                  |  um sistema simples e intuitivo para marcar meus cortes| que eu consiga agendar sem dificuldades ou ajuda de terceiros.     |
+|Pedro Oliveira   |  Notificação automática antes do horário agendado.|Receber lembretes para não esquecer o compromisso | 
+|                  |   um sistema que confirme meus horários sem precisar esperar atendimento                                               |   evitar frustrações com linhas ocupadas.|
 |Lucas Ferreira   | Opções de cortes   |Ter flexibilidade no horário  |
+|                 |ver avaliações de outros clientes antes de escolher um barbeiro    | evitar experiências ruins como na espera do atendimento |
 |Marcos Lima      |  Histórico de cortes para referência               |  Ter a segurança de que sua reserva está garantida|
+|                 |   um sistema que me avise sobre encaixes disponíveis  |conseguir agendar um corte rapidamente quando necessário                                                   |
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
