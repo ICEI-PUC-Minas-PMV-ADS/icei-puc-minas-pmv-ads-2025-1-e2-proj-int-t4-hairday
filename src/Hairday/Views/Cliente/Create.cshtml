@@ -1,5 +1,6 @@
 ﻿@model Cliente
-
+@{Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
 @if (TempData["Mensagem"] != null)
 {
     <div class="alert alert-success">@TempData["Mensagem"]</div>
@@ -19,12 +20,12 @@
 <body>
     <div class="container">
         <div class="left-side">
-            <img src="~/images/barbearia.png" alt="Imagem Barbearia" style="border: none; outline: none; box-shadow: none;">
+            <img src="~/img/barbearia.png" alt="Imagem Barbearia" style="border: none; outline: none; box-shadow: none;">
 
         </div>
         <div class="right-side">
             <div class="form-container">
-                <img src="~/images/logo.png" alt="Logo Hair Day" class="logo">
+                <img src="~/img/logoP.png" alt="Logo Hair Day" class="logo">
                 <h2>Cadastre-se</h2>
                 <p>Crie sua conta e agende seu horário em instantes!</p>
 

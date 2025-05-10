@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Hairday</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/cabecalhoBarbeiro.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Hairday.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-@* </head>
+</head>
 <body>
     <header class="header-black">
         <div class="img-logo">
@@ -39,10 +39,9 @@
             <a href="#">Login</a>
         </div>
     </header>
-<body> *@
-  
-    <div class="container">
-        <main role="main" class="pb-3">
+ 
+    <div>
+        <main role="main">
             @RenderBody()
         </main>
     </div>
