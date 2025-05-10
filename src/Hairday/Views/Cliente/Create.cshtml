@@ -1,31 +1,22 @@
 ﻿@model Cliente
-@{Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+@{
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
 }
 @if (TempData["Mensagem"] != null)
 {
     <div class="alert alert-success">@TempData["Mensagem"]</div>
 }
-
 @if (TempData["Erro"] != null)
 {
     <div class="alert alert-danger">@TempData["Erro"]</div>
 }
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro - Hair Day</title>
-    <link rel="stylesheet" href="~/css/cliente.css">
-</head>
-<body>
     <div class="container">
         <div class="left-side">
-            <img src="~/img/barbearia.png" alt="Imagem Barbearia" style="border: none; outline: none; box-shadow: none;">
-
+            <img src="~/img/barbearia.png" alt="Imagem Barbearia" />
         </div>
         <div class="right-side">
             <div class="form-container">
-                <img src="~/img/logoP.png" alt="Logo Hair Day" class="logo">
+                <img src="~/img/logoP.png" alt="Logo Hair Day" class="logo" />
                 <h2>Cadastre-se</h2>
                 <p>Crie sua conta e agende seu horário em instantes!</p>
 
@@ -35,11 +26,8 @@
                     <input asp-for="senha" placeholder="Senha" type="password" required />
                     <input asp-for="cidade" placeholder="Cidade" required />
                     <input asp-for="telefone" placeholder="Telefone" required />
-
                     <button type="submit">Cadastrar-se</button>
                 </form>
             </div>
         </div>
     </div>
-</body>
-</html>
