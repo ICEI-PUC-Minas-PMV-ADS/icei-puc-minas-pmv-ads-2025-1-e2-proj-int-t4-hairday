@@ -17,8 +17,6 @@ src/Hairday/Hairday.csproj.user
 # Ignorar arquivo de solução (se não quiser versionar)
 src/HairdayApp.sln
 
-src/Hairday/Hairday.sln
-
 # Arquivos comuns do Visual Studio
 *.suo
 *.user

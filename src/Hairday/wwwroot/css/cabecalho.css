@@ -1,0 +1,41 @@
+﻿/*﻿*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.header-black {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    height: 130px;
+}
+
+.logo-img {
+    height: 120px;
+    padding-left: 34px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 28px;
+}
+
+.nav-link > a {
+    color: #fff !important;
+    text-decoration: none;
+    font-family: Inter;
+}
+
+.login-link > a {
+    color: #fff !important;
+    text-decoration: none;
+    font-family: Inter;
+    padding-right: 34px;
+}*/
