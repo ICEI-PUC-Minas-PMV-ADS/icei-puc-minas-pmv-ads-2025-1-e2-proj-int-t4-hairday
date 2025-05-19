@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModels\BarbeariaInfoViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\EscolhaServico\Info.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\Assets\image 19.png" />
   </ItemGroup>
 
