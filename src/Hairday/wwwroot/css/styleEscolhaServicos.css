@@ -1,0 +1,140 @@
+﻿*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Inter;
+}
+
+.header-black {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    height: 130px;
+}
+
+.logo-img {
+    height: 120px;
+    padding-left: 34px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 28px;
+}
+
+.nav-link > a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Inter;
+}
+
+.login-link > a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Inter;
+    padding-right: 34px;
+}
+
+/* CÓDIGO PRINCIPAL DA PÁGINA */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 32px;
+}
+
+.img-main {
+    width: 520px;
+}
+
+.top-container {
+    display: flex;
+    gap: 160px;
+    width: 1200px;
+}
+
+.titulo-barbearia {
+    display: flex;
+    width: 1200px;
+    justify-content: start;
+    padding-bottom: 32px;
+    font-size: 28px;
+}
+
+.aside-detalhes {
+    height: 346px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 2px 2px 2px 3px rgb(0 0 0 / 10%);
+    padding: 28px;
+    border-radius: 12px;
+}
+
+.secao-barbeiros {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lista-barbeiros {
+    list-style-type: none;
+}
+
+.nome-barbeiro {
+    padding-top: 8px;
+}
+
+.bottom-container {
+    width: 1200px;
+}
+
+.titulo-servicos {
+    padding: 32px 0px;
+    width: 100%;
+    font-size: 28px;
+}
+
+.barbeiro > h5 {
+    font-size: 22px;
+    padding-bottom: 12px;
+}
+
+.barbeiro {
+    margin-bottom: 24px;
+    background-color: #EAEAEA;
+    width: 1050px;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.servico {
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.servico-nome {
+    padding: 12px 0px;
+}
+
+.preco-detalhes {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.reservar-btn {
+    padding: 12px;
+    border-radius: 16px;
+    background-color: black;
+    color: white;
+}

@@ -1,6 +1,99 @@
 ﻿@model Hairday.ViewModels.EscolhaServicoViewModel
 
 @{
+    ViewData["Title"] = "Serviços";
+    Layout = "~/Views/Shared/_Layout_Escolha_Servico.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="titulo-barbearia">
+            <h4 class="nome-barbearia">@Model.Barbearia.nome</h4>
+        </div>
+
+        <div class="top-container">
+            <img class="img-main" src="~/img/img_escolha_servico.png" alt="Imagem principal" />
+
+            <aside class="aside-detalhes">
+                <p><strong>Endereço:</strong> @Model.Barbearia.endereco</p>
+                <p><strong>Telefone:</strong> @Model.Barbearia.telefone</p>
+
+                <div class="secao-barbeiros">
+                    <h4 class="barbeiros-titulo">Equipe:</h4>
+                    <ul class="lista-barbeiros">
+                        @foreach (var barbeiro in Model.Barbeiros)
+                        {
+                            <li class="nome-barbeiro">@barbeiro.nome</li>
+                        }
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <div class="bottom-container">
+            <h2 class="titulo-servicos">Serviços</h2>
+
+            @foreach (var barbeiro in Model.Barbeiros)
+            {
+                <div class="barbeiro">
+                    <h5>@barbeiro.nome</h5>
+
+                    @foreach (var servico in barbeiro.servicos)
+                    {
+                        <div class="servico">
+                            <div class="servico-nome">@servico.nome_servico</div>
+                            <div class="preco-detalhes">
+                                <div class="servico-preco">R$ @servico.preco.ToString("F2")</div>
+                                <button class="reservar-btn">Reservar</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* @model Hairday.ViewModels.EscolhaServicoViewModel
+
+@{
 	ViewData["Title"] = "Serviços";
 }
 
@@ -28,4 +121,4 @@
             }
         </div>
     }
-</div>
+</div> *@
