@@ -1,0 +1,25 @@
+﻿@model List<TimeSpan>
+
+@if (!Model.Any())
+{
+    <p>Nenhum horário disponível nesta data.</p>
+}
+else
+{
+    <h3>Horários disponíveis</h3>
+    <form>
+        @foreach (var hora in Model.OrderBy(h => h))
+        {
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       name="hora"
+                       id="hora_@hora.ToString()"
+                       value="@hora.ToString(@"hh\:mm")" />
+                <label class="form-check-label" for="hora_@hora.ToString()">
+                    @hora.ToString(@"hh\:mm")
+                </label>
+            </div>
+        }
+    </form>
+}

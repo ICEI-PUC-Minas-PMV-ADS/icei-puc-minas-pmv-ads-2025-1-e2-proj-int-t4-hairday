@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Selecionar horário";
+    var dias = ViewBag.ProximosDias as List<DateTime>;
+}
+
+<h2>Escolha uma data</h2>
+
+<select id="dataSelect" class="form-select">
+    <option value="">-- Selecione uma data --</option>
+    @foreach (var dia in dias)
+    {
+        <option value="@dia.ToString("yyyy-MM-dd")">@dia.ToString("dd/MM/yyyy")</option>
+    }
+</select>
+
+<div id="horariosContainer" class="mt-4"></div>
+
+@section Scripts {
+    <script>
+        document.getElementById("dataSelect").addEventListener("change", function () {
+            const data = this.value;
+            if (data) {
+                fetch(`/AgendarHorario/HorariosDisponiveis?data=${data}`)
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById("horariosContainer").innerHTML = html;
+                    });
+            } else {
+                document.getElementById("horariosContainer").innerHTML = "";
+            }
+        });
+    </script>
+}
+
