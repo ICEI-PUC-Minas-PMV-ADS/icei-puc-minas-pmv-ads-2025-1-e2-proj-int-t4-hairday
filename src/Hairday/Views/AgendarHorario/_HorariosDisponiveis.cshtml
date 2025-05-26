@@ -1,25 +1,25 @@
-﻿@model List<TimeSpan>
+﻿@model IEnumerable<Hairday.Models.Horario_Disponivel>
 
 @if (!Model.Any())
 {
-    <p>Nenhum horário disponível nesta data.</p>
+    <p>Nenhum horário disponível para esta data.</p>
 }
 else
 {
-    <h3>Horários disponíveis</h3>
-    <form>
-        @foreach (var hora in Model.OrderBy(h => h))
-        {
-            <div class="form-check">
-                <input class="form-check-input"
-                       type="radio"
-                       name="hora"
-                       id="hora_@hora.ToString()"
-                       value="@hora.ToString(@"hh\:mm")" />
-                <label class="form-check-label" for="hora_@hora.ToString()">
-                    @hora.ToString(@"hh\:mm")
-                </label>
-            </div>
-        }
+    <form id="formHorarios">
+        <div class="row">
+            @foreach (var horario in Model.OrderBy(h => h.hora))
+            {
+                var horaFormatada = horario.hora.ToString(@"hh\:mm");
+                <div class="col-md-2 mb-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="horarioSelecionado" id="horario_@horaFormatada" value="@horaFormatada">
+                        <label class="form-check-label" for="horario_@horaFormatada">
+                            @horaFormatada
+                        </label>
+                    </div>
+                </div>
+            }
+        </div>
     </form>
 }

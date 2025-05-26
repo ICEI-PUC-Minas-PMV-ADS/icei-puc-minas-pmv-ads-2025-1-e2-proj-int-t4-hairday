@@ -1,34 +1,70 @@
-﻿@{
-    ViewData["Title"] = "Selecionar horário";
-    var dias = ViewBag.ProximosDias as List<DateTime>;
+﻿@model DateTime?
+
+@{
+    ViewData["Title"] = "Selecionar Horário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Escolha uma data</h2>
+<h2>Selecionar Horário</h2>
 
-<select id="dataSelect" class="form-select">
-    <option value="">-- Selecione uma data --</option>
-    @foreach (var dia in dias)
-    {
-        <option value="@dia.ToString("yyyy-MM-dd")">@dia.ToString("dd/MM/yyyy")</option>
-    }
-</select>
+<div>
+    <label for="dataSelect">Escolha uma data:</label>
+    <select id="dataSelect" class="form-select">
+        <option value="">-- Selecione --</option>
+        @foreach (var data in ViewBag.Datas)
+        {
+            <option value="@data.ToString("yyyy-MM-dd")">@data.ToString("dd/MM/yyyy")</option>
+        }
+    </select>
+</div>
 
-<div id="horariosContainer" class="mt-4"></div>
+<br />
+
+<div id="horariosContainer">
+    <!-- Aqui os horários disponíveis serão carregados -->
+</div>
+
+<div id="resumoBox" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9;">
+    <h4>Resumo do Agendamento</h4>
+    <p><strong>Barbeiro:</strong> <span id="resumoBarbeiro"></span></p>
+    <p><strong>Serviço:</strong> <span id="resumoServico"></span></p>
+    <p><strong>Preço:</strong> R$ <span id="resumoPreco"></span></p>
+    <p><strong>Data:</strong> <span id="resumoData"></span></p>
+    <p><strong>Horário:</strong> <span id="resumoHora"></span></p>
+</div>
 
 @section Scripts {
     <script>
-        document.getElementById("dataSelect").addEventListener("change", function () {
-            const data = this.value;
-            if (data) {
-                fetch(`/AgendarHorario/HorariosDisponiveis?data=${data}`)
-                    .then(response => response.text())
-                    .then(html => {
-                        document.getElementById("horariosContainer").innerHTML = html;
+        $(document).ready(function () {
+            $('#dataSelect').change(function () {
+                const selectedDate = $(this).val();
+
+                if (selectedDate) {
+                    $.get('/AgendarHorario/HorariosPorData', { data: selectedDate }, function (html) {
+                        $('#horariosContainer').html(html);
+                        $('#resumoBox').hide();
                     });
-            } else {
-                document.getElementById("horariosContainer").innerHTML = "";
-            }
+                } else {
+                    $('#horariosContainer').empty();
+                    $('#resumoBox').hide();
+                }
+            });
+
+            $(document).on('change', 'input[name="horarioSelecionado"]', function () {
+                const selectedDate = $('#dataSelect').val();
+                const selectedHora = $(this).val();
+
+                if (selectedDate && selectedHora) {
+                    $.get('/AgendarHorario/DadosResumo', { data: selectedDate, hora: selectedHora }, function (data) {
+                        $('#resumoBarbeiro').text(data.nomeBarbeiro);
+                        $('#resumoServico').text(data.nomeServico);
+                        $('#resumoPreco').text(data.preco.toFixed(2));
+                        $('#resumoData').text(data.data);
+                        $('#resumoHora').text(data.hora);
+                        $('#resumoBox').show();
+                    });
+                }
+            });
         });
     </script>
 }
-
