@@ -33,36 +33,73 @@
     <p><strong>Horário:</strong> <span id="resumoHora"></span></p>
 </div>
 
+<form method="post"
+      asp-action="AgendarHorario"
+      asp-controller="AgendarHorario">
+
+    <input type="hidden"
+           name="dataSelecionada"
+           id="input-data">
+
+    <input type="hidden"
+           name="horaSelecionada"
+           id="input-hora">
+
+    <button type="submit"
+            class="btn btn-success mt-2">
+        Agendar
+    </button>
+</form>
+
 @section Scripts {
     <script>
-        $(document).ready(function () {
+                $(document).ready(function () {
+            // Handler para mudança de data
             $('#dataSelect').change(function () {
                 const selectedDate = $(this).val();
 
                 if (selectedDate) {
-                    $.get('/AgendarHorario/HorariosPorData', { data: selectedDate }, function (html) {
-                        $('#horariosContainer').html(html);
-                        $('#resumoBox').hide();
-                    });
+                    $.get('/AgendarHorario/HorariosPorData',
+                        { data: selectedDate },
+                        function (html) {
+                            $('#horariosContainer').html(html);
+                            $('#resumoBox').hide();
+                        }
+                    );
                 } else {
                     $('#horariosContainer').empty();
                     $('#resumoBox').hide();
                 }
             });
 
+            // Handler para seleção de horário
             $(document).on('change', 'input[name="horarioSelecionado"]', function () {
                 const selectedDate = $('#dataSelect').val();
                 const selectedHora = $(this).val();
 
                 if (selectedDate && selectedHora) {
-                    $.get('/AgendarHorario/DadosResumo', { data: selectedDate, hora: selectedHora }, function (data) {
-                        $('#resumoBarbeiro').text(data.nomeBarbeiro);
-                        $('#resumoServico').text(data.nomeServico);
-                        $('#resumoPreco').text(data.preco.toFixed(2));
-                        $('#resumoData').text(data.data);
-                        $('#resumoHora').text(data.hora);
-                        $('#resumoBox').show();
-                    });
+                    // Atualiza campos hidden do formulário
+                    $('#input-data').val(selectedDate);
+                    $('#input-hora').val(selectedHora);
+
+                    // Busca dados para o resumo
+                    $.get('/AgendarHorario/DadosResumo',
+                        {
+                            data: selectedDate,
+                            hora: selectedHora
+                        },
+                        function (data) {
+                            // Preenche dados do resumo
+                            $('#resumoBarbeiro').text(data.nomeBarbeiro);
+                            $('#resumoServico').text(data.nomeServico);
+                            $('#resumoPreco').text(data.preco.toFixed(2));
+                            $('#resumoData').text(data.data);
+                            $('#resumoHora').text(data.hora);
+
+                            // Exibe a box de resumo
+                            $('#resumoBox').show();
+                        }
+                    );
                 }
             });
         });
