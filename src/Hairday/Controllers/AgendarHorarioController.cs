@@ -3,12 +3,6 @@ using Hairday.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
-
-//cpfBarbeiro = "12345678901"
-//id_servico == 1
-//int idCliente = 1;
-
-
 namespace Hairday.Controllers
 {
     public class AgendarHorarioController : Controller
@@ -22,10 +16,15 @@ namespace Hairday.Controllers
 
         public IActionResult Selecionar(int id_servico, string cpfBarbeiro)
         {
+            // Verifica se o usuário está logado e é cliente
+            var tipoUsuario = HttpContext.Session.GetString("tipo");
+            if (tipoUsuario != "cliente")
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             TempData["id_servico"] = id_servico;
             TempData["cpfBarbeiro"] = cpfBarbeiro;
-
-            // Mantém TempData disponível por mais de uma requisição
             TempData.Keep();
 
             var datas = Enumerable.Range(0, 10)
@@ -36,11 +35,13 @@ namespace Hairday.Controllers
             return View();
         }
 
-
-
         [HttpGet]
         public async Task<IActionResult> HorariosPorData(DateTime data)
         {
+            // Apenas clientes logados
+            if (HttpContext.Session.GetString("tipo") != "cliente")
+                return Unauthorized();
+
             var cpfBarbeiro = TempData["cpfBarbeiro"]?.ToString();
             TempData.Keep();
 
@@ -52,10 +53,12 @@ namespace Hairday.Controllers
             return PartialView("_HorariosDisponiveis", horarios);
         }
 
-
         [HttpGet]
         public async Task<IActionResult> DadosResumo(DateTime data, string hora)
         {
+            if (HttpContext.Session.GetString("tipo") != "cliente")
+                return Unauthorized();
+
             var cpfBarbeiro = TempData["cpfBarbeiro"]?.ToString();
             var idServico = Convert.ToInt32(TempData["id_servico"]);
             TempData.Keep();
@@ -85,13 +88,19 @@ namespace Hairday.Controllers
             return Json(resultado);
         }
 
-
         [HttpPost]
         public async Task<IActionResult> AgendarHorario(DateTime dataSelecionada, string horaSelecionada)
         {
+            if (HttpContext.Session.GetString("tipo") != "cliente")
+                return Unauthorized();
+
             var cpfBarbeiro = TempData["cpfBarbeiro"]?.ToString();
             var idServico = Convert.ToInt32(TempData["id_servico"]);
-            var idCliente = 1; // ainda fixo, você pode depois usar TempData ou autenticação
+
+            // Recupera o ID do cliente da sessão
+            var idCliente = HttpContext.Session.GetInt32("id");
+            if (idCliente == null)
+                return RedirectToAction("Login", "Account");
 
             TempData.Keep();
 
@@ -105,7 +114,7 @@ namespace Hairday.Controllers
 
             var agendamento = new Agendamento
             {
-                id_cliente = idCliente,
+                id_cliente = idCliente.Value,
                 CPF_barbeiro = cpfBarbeiro,
                 CNPJ_barbearia = barbeiro.CNPJ_barbearia,
                 data = dataSelecionada,
@@ -139,7 +148,5 @@ namespace Hairday.Controllers
             TempData["Mensagem"] = "Agendamento realizado com sucesso!";
             return RedirectToAction("Selecionar");
         }
-
-
     }
 }

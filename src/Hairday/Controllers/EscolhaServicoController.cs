@@ -17,6 +17,13 @@ namespace Hairday.Controllers
         // GET: /EscolhaServico/Detalhes?cnpj=11111111000101
         public IActionResult Detalhes(string cnpj)
         {
+            // Verifica se o usuário está logado e é um cliente
+            var tipoUsuario = HttpContext.Session.GetString("tipo");
+            if (tipoUsuario != "cliente")
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             if (string.IsNullOrEmpty(cnpj))
             {
                 return NotFound("CNPJ não informado.");
@@ -42,5 +49,6 @@ namespace Hairday.Controllers
 
             return View(vm);
         }
+
     }
 }
