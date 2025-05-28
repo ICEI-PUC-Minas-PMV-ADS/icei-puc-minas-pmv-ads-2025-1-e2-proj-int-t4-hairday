@@ -20,21 +20,29 @@ namespace Hairday.Controllers
             _context = context;
         }
 
-        public IActionResult Selecionar()
+        public IActionResult Selecionar(int id_servico, string cpfBarbeiro)
         {
+            TempData["id_servico"] = id_servico;
+            TempData["cpfBarbeiro"] = cpfBarbeiro;
+
+            // Mantém TempData disponível por mais de uma requisição
+            TempData.Keep();
+
             var datas = Enumerable.Range(0, 10)
                 .Select(i => DateTime.Today.AddDays(i))
                 .ToList();
 
             ViewBag.Datas = datas;
-
             return View();
         }
+
+
 
         [HttpGet]
         public async Task<IActionResult> HorariosPorData(DateTime data)
         {
-            var cpfBarbeiro = "12345678901";
+            var cpfBarbeiro = TempData["cpfBarbeiro"]?.ToString();
+            TempData.Keep();
 
             var horarios = await _context.Horario_Disponivel
                 .Where(h => h.CPF_barbeiro == cpfBarbeiro && h.data == data && !h.ocupado)
@@ -44,18 +52,21 @@ namespace Hairday.Controllers
             return PartialView("_HorariosDisponiveis", horarios);
         }
 
+
         [HttpGet]
         public async Task<IActionResult> DadosResumo(DateTime data, string hora)
         {
-            var cpfBarbeiro = "12345678901";
+            var cpfBarbeiro = TempData["cpfBarbeiro"]?.ToString();
+            var idServico = Convert.ToInt32(TempData["id_servico"]);
+            TempData.Keep();
 
             var barbeiro = await _context.Barbeiros
                 .FirstOrDefaultAsync(b => b.CPF_barbeiro == cpfBarbeiro);
 
-            var horario = TimeSpan.ParseExact(hora, @"hh\:mm", CultureInfo.InvariantCulture);
-
             var servico = await _context.Servicos
-                .FirstOrDefaultAsync(s => s.id_servico == 1);
+                .FirstOrDefaultAsync(s => s.id_servico == idServico);
+
+            var horario = TimeSpan.ParseExact(hora, @"hh\:mm", CultureInfo.InvariantCulture);
 
             if (barbeiro == null || servico == null)
             {
@@ -74,12 +85,15 @@ namespace Hairday.Controllers
             return Json(resultado);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> AgendarHorario(DateTime dataSelecionada, string horaSelecionada)
         {
-            var cpfBarbeiro = "12345678901";
-            var idCliente = 1;
-            var idServico = 1;
+            var cpfBarbeiro = TempData["cpfBarbeiro"]?.ToString();
+            var idServico = Convert.ToInt32(TempData["id_servico"]);
+            var idCliente = 1; // ainda fixo, você pode depois usar TempData ou autenticação
+
+            TempData.Keep();
 
             var barbeiro = await _context.Barbeiros
                 .FirstOrDefaultAsync(b => b.CPF_barbeiro == cpfBarbeiro);
@@ -89,7 +103,6 @@ namespace Hairday.Controllers
 
             var horario = TimeSpan.ParseExact(horaSelecionada, @"hh\:mm", CultureInfo.InvariantCulture);
 
-            // Cria o agendamento principal
             var agendamento = new Agendamento
             {
                 id_cliente = idCliente,
@@ -102,7 +115,6 @@ namespace Hairday.Controllers
             _context.Agendamentos.Add(agendamento);
             await _context.SaveChangesAsync();
 
-            // Associa o serviço ao agendamento
             var agendamentoServico = new Agendamento_Servico
             {
                 id_agendamento = agendamento.id_agendamento,
@@ -110,7 +122,6 @@ namespace Hairday.Controllers
             };
             _context.Add(agendamentoServico);
 
-            // Atualiza o status do horário
             var horarioDb = await _context.Horario_Disponivel
                 .FirstOrDefaultAsync(h =>
                     h.CPF_barbeiro == cpfBarbeiro &&
@@ -128,6 +139,7 @@ namespace Hairday.Controllers
             TempData["Mensagem"] = "Agendamento realizado com sucesso!";
             return RedirectToAction("Selecionar");
         }
+
 
     }
 }

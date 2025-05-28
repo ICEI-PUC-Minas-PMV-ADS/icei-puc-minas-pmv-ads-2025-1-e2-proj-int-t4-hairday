@@ -58,7 +58,15 @@
                             <div class="servico-nome">@servico.nome_servico</div>
                             <div class="preco-detalhes">
                                 <div class="servico-preco">R$ @servico.preco.ToString("F2")</div>
-                                <button class="reservar-btn">Reservar</button>
+                                @* <button class="reservar-btn">Reservar</button> *@
+                                <a asp-controller="AgendarHorario"
+                                   asp-action="Selecionar"
+                                   asp-route-id_servico=@servico.id_servico
+                                   asp-route-cpfBarbeiro=@servico.CPF_barbeiro
+                                   class="btn btn-primary">
+                                    Agendar
+                                </a>
+
                             </div>
                         </div>
                     }
@@ -68,57 +76,3 @@
     </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@* @model Hairday.ViewModels.EscolhaServicoViewModel
-
-@{
-	ViewData["Title"] = "Serviços";
-}
-
-<div class="container my-4"> <h2 class="mb-4">Serviços</h2>
-    <aside class="mb-5 p-3 rounded bg-light border">
-        <h4 class="fw-bold">@Model.Barbearia.nome</h4>
-        <p><strong>Endereço:</strong> @Model.Barbearia.endereco</p>
-        <p><strong>Telefone:</strong> @Model.Barbearia.telefone</p>
-    </aside>
-
-    @foreach (var barbeiro in Model.Barbeiros)
-    {
-        <div class="mb-4">
-            <h5 class="fw-bold">@barbeiro.nome</h5>
-
-            @foreach (var servico in barbeiro.servicos)
-            {
-                <div class="d-flex justify-content-between align-items-center p-3 rounded mb-2" style="background-color: #eee;">
-                    <div class="fs-5">@servico.nome_servico</div>
-                    <div class="text-end">
-                        <div class="fw-bold mb-1">R$ @servico.preco.ToString("F2")</div>
-                        <button class="btn btn-dark btn-sm">Reservar</button>
-                    </div>
-                </div>
-            }
-        </div>
-    }
-</div> *@
