@@ -29,7 +29,7 @@
                                                             
                     <button type="submit">Login</button>
                 </form>
-                <p class="register">Não possui uma conta? <a asp-controller="Account" asp-action="Register">Criar uma conta</a></p>
+                <p class="register">Não possui uma conta? <a asp-controller="Cliente" asp-action="Create">Criar uma conta</a></p>
                 @if (!ViewData.ModelState.IsValid)
                 {
                     <div class="validation-summary">
