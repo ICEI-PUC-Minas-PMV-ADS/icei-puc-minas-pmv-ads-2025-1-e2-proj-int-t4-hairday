@@ -1,18 +1,12 @@
-﻿@model List<Hairday.Models.Barbearia>
+﻿@model IEnumerable<Hairday.Models.Barbearia>
+
 @{
+    ViewData["Title"] = "FiltrarPorBarba";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
-    ViewData["Title"] = "Buscar Barbearia por Nome";
 }
 
-<h2 class="mb-4">@ViewData["Title"]</h2>
+<h1>Barbearias que ofereçem o servico de SPA</h1>
 
-<form asp-action="BuscarBarbeariaPorNome" method="get" class="mb-5">
-    <div class="mb-3">
-        <label for="nome" class="form-label">Nome da Barbearia:</label>
-        <input type="text" name="nome" class="form-control" placeholder="Digite o nome da barbearia" />
-    </div>
-    <button type="submit" class="btn btn-primary">Buscar</button>
-</form>
 
 @if (Model != null && Model.Any())
 {

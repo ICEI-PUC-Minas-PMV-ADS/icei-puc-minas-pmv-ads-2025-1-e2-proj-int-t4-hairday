@@ -19,10 +19,7 @@
                 <img src="~/Assets/HairDay Logo.png" alt="Logo HairDay" class="header-logo">
             </div>
             <div class="login-container">
-                <span class="login-text">
-                    <a class ="login-text" asp-controller="Account" asp-action="Login">Login</a> /
-                    <a class="login-text" asp-controller="Cliente" asp-action="Create">Cadastro</a>
-                </span>
+                <a class="login-text" asp-controller="Account" asp-action="Login" class="nav-link">Login / Casdastro</a>
                 <button id="cadastroBarbeariaId" class="btn-barbearia">
                     Cadastre sua barbearia
                 </button>
@@ -41,11 +38,11 @@
             </form>
 
             <nav class="services-nav">
-                <a href="#" class="service-link active">Cabelo</a>
-                <a href="#" class="service-link">Barba</a>
-                <a href="#" class="service-link">Sobrancelha</a>
-                <a href="#" class="service-link">Spa</a>
-                <a href="#" class="service-link">Massagem</a>
+                <a  asp-controller="Home" asp-action="FiltrarPorCabelo" class="nav-link">Cabelo</a>
+                <a asp-controller="Home" asp-action="FiltrarPorBarba" class="nav-link">Barba</a>
+                <a asp-controller="Home" asp-action="FiltrarPorSobrancelha" class="nav-link">Sobrancelha</a>
+                <a asp-controller="Home" asp-action="FiltrarPorSpa" class="nav-link">SPA</a>
+                <a asp-controller="Home" asp-action="FiltrarPorMassagem" class="nav-link">Massagem</a>
             </nav>
 
             @if (!string.IsNullOrEmpty(ViewBag.Mensagem as string))

@@ -1,4 +1,17 @@
-﻿
+﻿html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
 .footer-container {
     background-color: #000;
     padding: 30px 20px;
@@ -46,24 +59,31 @@
     font-size: 26px;
     transition: transform 0.3s, color 0.3s;
 }
+
     .social-icon:hover {
         transform: scale(1.2);
     }
+
         .social-icon:hover .bi-instagram {
             color: #E1306C;
         }
+
         .social-icon:hover .bi-facebook {
             color: #1877F2;
         }
+
         .social-icon:hover .bi-youtube {
             color: #FF0000;
         }
+
         .social-icon:hover .bi-linkedin {
             color: #0A66C2;
         }
+
         .social-icon:hover .bi-tiktok {
             color: #25F4EE;
         }
+
         .social-icon:hover i.bi-instagram {
             color: #E1306C;
         }
@@ -83,6 +103,7 @@
         .social-icon:hover i.bi-tiktok {
             color: #25F4EE;
         }
+
 .slogan-loader {
     display: inline-flex;
     justify-content: center;
@@ -130,7 +151,7 @@
     16.6% {
         transform: translateY(-100%);
     }
- 
+
     33.3% {
         transform: translateY(-200%);
     }
@@ -153,5 +174,5 @@
 }
 
 .slogan-word {
-    animation: slideSlogan 6s infinite; 
+    animation: slideSlogan 6s infinite;
 }
