@@ -19,7 +19,10 @@
                 <img src="~/Assets/HairDay Logo.png" alt="Logo HairDay" class="header-logo">
             </div>
             <div class="login-container">
-                <a class="login-text" asp-controller="Account" asp-action="Login" class="nav-link">Login / Casdastro</a>
+                <span class="login-text">
+                    <a class="login-text" asp-controller="Account" asp-action="Login">Login</a> /
+                    <a class="login-text" asp-controller="Cliente" asp-action="Create">Cadastro</a>
+                </span>
                 <button id="cadastroBarbeariaId" class="btn-barbearia">
                     Cadastre sua barbearia
                 </button>
