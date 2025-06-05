@@ -1,33 +1,70 @@
 ﻿@model Hairday.Models.Cliente
-@{
-    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
-}
-@if (TempData["Mensagem"] != null)
-{
-    <div class="alert alert-success">@TempData["Mensagem"]</div>
-}
-@if (TempData["Erro"] != null)
-{
-    <div class="alert alert-danger">@TempData["Erro"]</div>
-}
-    <div class="container">
-        <div class="left-side">
-            <img src="~/img/barbearia.png" alt="Imagem Barbearia" />
-        </div>
-        <div class="right-side">
-            <div class="form-container">
-                <img src="~/img/logoP.png" alt="Logo Hair Day" class="logo" />
-                <h2>Cadastre-se</h2>
-                <p>Crie sua conta e agende seu horário em instantes!</p>
 
-                <form asp-action="Create" method="post">
-                    <input asp-for="nome" placeholder="Nome completo" required />
-                    <input asp-for="email" placeholder="Email" required type="email" />
-                    <input asp-for="senha" placeholder="Senha" type="password" required />
-                    <input asp-for="cidade" placeholder="Cidade" required />
-                    <input asp-for="telefone" placeholder="Telefone" required />
-                    <button type="submit">Cadastrar-se</button>
-                </form>
-            </div>
-        </div>
-    </div>
+@{
+	Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+<div class="cadastro-container">
+	<div class="imagem-lateral">
+		<img src="~/img/barbearia.png" alt="Imagem Barbearia" />
+	</div>
+	<div class="formulario-lateral">
+		<div class="form-box">
+			<img src="~/img/logoP.png" alt="Logo Hair Day" class="logo" />
+			<h2>Cadastre-se</h2>
+			<p>Crie sua conta e agende seu horário em instantes!</p>
+
+			<form asp-action="Create" method="post">
+				@Html.AntiForgeryToken()
+
+				<input asp-for="nome" placeholder="Nome completo" required />
+				<span asp-validation-for="nome" class="text-danger"></span>
+
+				<input asp-for="email" placeholder="Email" required type="email" />
+				<span asp-validation-for="email" class="text-danger"></span>
+
+				<input asp-for="senha" placeholder="Senha" type="password" required />
+				<span asp-validation-for="senha" class="text-danger"></span>
+
+				<input asp-for="cidade" placeholder="Cidade" required />
+				<span asp-validation-for="cidade" class="text-danger"></span>
+
+				<input asp-for="telefone" placeholder="Telefone" required />
+				<span asp-validation-for="telefone" class="text-danger"></span>
+
+				<button type="submit">Cadastrar-se</button>
+
+				@if (TempData["Mensagem"] != null)
+				{
+					<div id="msg-alert" class="alert alert-success mt-3">
+						@TempData["Mensagem"]
+					</div>
+				}
+				@if (TempData["Erro"] != null)
+				{
+					<div id="msg-alert" class="alert alert-danger mt-3">
+						@TempData["Erro"]
+					</div>
+				}
+			</form>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			const alert = document.getElementById('msg-alert');
+			if (alert) {
+				setTimeout(() => {
+					alert.style.transition = 'opacity 0.5s ease';
+					alert.style.opacity = '0';
+					setTimeout(() => alert.remove(), 500);
+				}, 3000);
+			}
+		});
+	</script>
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

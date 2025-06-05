@@ -45,10 +45,15 @@ public class ClienteController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("id_cliente,nome,email,senha,cidade,telefone")] Cliente cliente)
     {
+        System.Diagnostics.Debug.WriteLine("=== ENTROU NO POST CREATE DE CLIENTE ===");
+        Console.WriteLine("Recebido POST com os dados:");
+        Console.WriteLine($"Nome: {cliente.nome}, Email: {cliente.email}");
+
         // Verifica se o email já existe no banco
         if (await _context.Clientes.AnyAsync(c => c.email == cliente.email))
         {
             TempData["Erro"] = "Email já cadastrado!";
+            Console.WriteLine("Email já existe.");
             return View(cliente);
         }
 
@@ -56,11 +61,25 @@ public class ClienteController : Controller
         {
             _context.Add(cliente);
             await _context.SaveChangesAsync();
-
             TempData["Mensagem"] = "Cadastro realizado com sucesso!";
-            return RedirectToAction(nameof(Index)); // ou Create se preferir manter na mesma tela
-        }
+            Console.WriteLine("Cadastro salvo com sucesso.");
+            TempData["Mensagem"] = "Cadastro realizado com sucesso!";
+            return RedirectToAction("Login", "Account");
 
+
+
+        }
+        if (!ModelState.IsValid)
+        {
+            foreach (var kvp in ModelState)
+            {
+                foreach (var error in kvp.Value.Errors)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Erro em {kvp.Key}: {error.ErrorMessage}");
+                }
+            }
+        }
+        Console.WriteLine("ModelState inválido.");
         return View(cliente);
     }
 
