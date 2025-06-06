@@ -1,0 +1,123 @@
+﻿/* Reset e estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Frames */
+.frame {
+    margin-bottom: 20px;
+}
+
+.frame-title {
+    text-align: center;
+    padding: 20px 0;
+}
+
+    .frame-title h1 {
+        font-size: 28px;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .frame-title .subtitle {
+        font-size: 16px;
+        color: #666;
+    }
+
+.frame-note {
+    font-size: 14px;
+    color: #888;
+    text-align: right;
+    padding-right: 10px;
+}
+
+/* Formulário */
+.form-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .form-table tr {
+        border-bottom: 1px solid #eee;
+    }
+
+        .form-table tr:last-child {
+            border-bottom: none;
+        }
+
+    .form-table td {
+        padding: 12px 8px;
+    }
+
+        .form-table td:first-child {
+            width: 30%;
+            font-weight: 500;
+        }
+
+    .form-table input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+        .form-table input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+/* Botão */
+.frame-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cadastrar-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .cadastrar-btn:hover {
+        background-color: #0056b3;
+    }
+
+/* Rodapé */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    color: #777;
+    font-size: 14px;
+}
