@@ -146,7 +146,8 @@ namespace Hairday.Controllers
             await _context.SaveChangesAsync();
 
             TempData["Mensagem"] = "Agendamento realizado com sucesso!";
-            return RedirectToAction("Selecionar");
+            return RedirectToAction("MeusAgendamentos", "AgendamentosCliente");
+
         }
     }
 }

@@ -48,6 +48,13 @@ namespace Hairday.Controllers
                 return View(model);
             }
 
+            var barbeiroExiste = await _context.Barbeiros.AnyAsync(b => b.CPF_barbeiro == model.CPF_barbeiro);
+            if (!barbeiroExiste)
+            {
+                ModelState.AddModelError("Erro", "Barbeiro nao foi encontrado!");
+                return View(model);
+            }
+
             DateTime hoje = DateTime.Today;
             DateTime fim = hoje.AddDays(30);
 

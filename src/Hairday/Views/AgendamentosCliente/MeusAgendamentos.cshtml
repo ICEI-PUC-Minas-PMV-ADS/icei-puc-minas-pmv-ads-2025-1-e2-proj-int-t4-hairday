@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Hairday.Models.Agendamento>
+
+
+@{
+    ViewData["Title"] = "Meus Agendamentos";
+    Layout = "~/Views/Shared/_Layout_Meus_Agendamentos.cshtml";
+}
+
+
+<h2>Meus Agendamentos</h2>
+
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Mensagem"]
+    </div>
+}
+
+<div class="row">
+    @foreach (var agendamento in Model)
+    {
+        var barbearia = agendamento.barbeiro?.barbearia;
+        var servico = agendamento.agendamento_servicos.FirstOrDefault()?.servico;
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    @barbearia?.nome
+                </div>
+                <div class="card-body">
+                    <p><strong>Endereço:</strong> @barbearia?.endereco</p>
+                    <p><strong>Telefone:</strong> @barbearia?.telefone</p>
+                    <p><strong>Barbeiro:</strong> @agendamento.barbeiro?.nome</p>
+                    <p><strong>Serviço:</strong> @servico?.nome_servico</p>
+                    <p><strong>Data:</strong> @agendamento.data.ToString("dd/MM/yyyy")</p>
+                    <p><strong>Hora:</strong> @agendamento.hora.ToString(@"hh\:mm")</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
