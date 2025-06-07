@@ -6,58 +6,95 @@
 }
 
 <div class="container">
-    <!-- Frame 13 - Título -->
     <div class="frame frame-title">
         <h1>Cadastre sua barbearia</h1>
         <p class="subtitle">O próximo passo do seu negócio é aqui!</p>
     </div>
-<div>
- 
-    <!-- Formulário Principal -->
+
     <div class="form-container">
-        <!-- Frame 12 - Tabela de campos -->
         <div class="frame frame-form">
-            <form method="post">
+            <form method="post" onsubmit="return validarSenhas()">
                 <table class="form-table">
                     <tr>
-                        <td><label for="nome">Nome Completo</label></td>
-                        <td><input type="text" id="nome" name="nome" placeholder="João Feminos"></td>
+                        <td>@Html.LabelFor(m => m.nome)</td>
+                        <td>@Html.TextBoxFor(m => m.nome, new { placeholder = "João Feminos", @class = "form-control" })</td>
                     </tr>
                     <tr>
-                        <td><label for="chave">Cidade</label></td>
-                        <td><input type="text" id="chave" name="chave" placeholder="Minas Gerais"></td>
+                        <td>@Html.LabelFor(m => m.cidade)</td>
+                        <td>@Html.TextBoxFor(m => m.cidade, new { placeholder = "Minas Gerais", @class = "form-control" })</td>
                     </tr>
                     <tr>
-                        <td><label for="cnpj">CNPJ</label></td>
-                        <td><input type="text" id="cnpj" name="cnpj" placeholder="22.222.222/000"></td>
+                        <td>@Html.Label("CNPJ")</td>
+                        <td>
+                            <input type="text"
+                                   name="CNPJ_barbearia"
+                                   id="cnpj"
+                                   maxlength="18"
+                                   placeholder="00.000.000/0000-00"
+                                   class="form-control"
+                                   oninput="formatarCNPJ(this)" />
+                        </td>
                     </tr>
                     <tr>
-                        <td><label for="telefone">Telefone</label></td>
-                        <td><input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"></td>
+                        <td>@Html.LabelFor(m => m.telefone)</td>
+                        <td>@Html.TextBoxFor(m => m.telefone, new { placeholder = "(00) 00000-0000", @class = "form-control" })</td>
                     </tr>
                     <tr>
-                        <td><label for="email">Email</label></td>
-                        <td><input type="email" id="email" name="email" placeholder="abc@gmail.com"></td>
+                        <td>@Html.LabelFor(m => m.email)</td>
+                        <td>@Html.TextBoxFor(m => m.email, new { type = "email", placeholder = "abc@gmail.com", @class = "form-control" })</td>
                     </tr>
                     <tr>
-                        <td><label for="senha">Senha</label></td>
-                        <td><input type="password" id="senha" name="senha" placeholder="**********"></td>
+                        <td>@Html.LabelFor(m => m.senha)</td>
+                        <td>@Html.PasswordFor(m => m.senha, new { placeholder = "**********", @class = "form-control", id = "senha" })</td>
                     </tr>
                     <tr>
-                        <td><label for="endereco">Endereço</label></td>
-                        <td><input type="text" id="endereco" name="endereco" placeholder="Rua das Flores, Bairro Pereira"></td>
+                        <td><label for="confirmarSenha">Confirmar Senha</label></td>
+                        <td><input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="**********" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(m => m.endereco)</td>
+                        <td>@Html.TextBoxFor(m => m.endereco, new { placeholder = "Rua das Flores, Bairro Pereira", @class = "form-control" })</td>
                     </tr>
                 </table>
 
-                <!-- Frame 7 - Botão de cadastro -->
-                <div class="frame frame-button">
+                <div class="frame frame-button mt-3">
                     <button type="submit" class="cadastrar-btn">Cadastrar</button>
                 </div>
             </form>
         </div>
     </div>
-
+</div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        // Máscara de CNPJ sem biblioteca
+        function formatarCNPJ(campo) {
+            let valor = campo.value.replace(/\D/g, '');
+
+            if (valor.length > 14) valor = valor.substring(0, 14);
+
+            valor = valor.replace(/^(\d{2})(\d)/, '$1.$2');
+            valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+            valor = valor.replace(/\.(\d{3})(\d)/, '.$1/$2');
+            valor = valor.replace(/(\d{4})(\d)/, '$1-$2');
+
+            campo.value = valor;
+        }
+
+        // Validação de senhas
+        function validarSenhas() {
+            const senha = document.getElementById("senha").value;
+            const confirmar = document.getElementById("confirmarSenha").value;
+
+            if (senha !== confirmar) {
+                alert("As senhas não coincidem.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
