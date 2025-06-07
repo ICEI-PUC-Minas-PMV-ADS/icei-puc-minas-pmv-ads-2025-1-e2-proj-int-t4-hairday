@@ -52,8 +52,8 @@ public class AccountController : Controller
         {
             HttpContext.Session.SetString("tipo", "dono");
             HttpContext.Session.SetString("nome", dono.nome); 
-            HttpContext.Session.SetString("documento", dono.CNPJ_barbearia);
-            return RedirectToAction("Painel", "Barbearia");
+            HttpContext.Session.SetString("CNPJ_barbearia", dono.CNPJ_barbearia);
+            return RedirectToAction("Index", "ExibirAgendamentosBarbearia");
         }
 
         // Falha na autenticação

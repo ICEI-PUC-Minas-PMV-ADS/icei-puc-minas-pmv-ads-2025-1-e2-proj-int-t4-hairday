@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Agendamentos da Barbearia";
+    var datas = ViewBag.Datas as List<DateTime>;
+    Layout = "~/Views/Shared/_Layout_ExibirAgendamentosBarbearia.cshtml";
+
+}
+
+
+<div class="container mt-4">
+    <h2>Agendamentos da Barbearia</h2>
+
+    <div class="form-group mb-3">
+        <label for="dataSelecionada">Escolha uma data:</label>
+        <select class="form-select" id="dataSelecionada">
+            @foreach (var data in datas)
+            {
+                <option value="@data.ToString("yyyy-MM-dd")">
+                    @data.ToString("dd/MM/yyyy")
+                </option>
+            }
+        </select>
+    </div>
+
+    <div id="agendamentos-container">
+        <p class="text-muted">Selecione uma data para ver os agendamentos.</p>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("dataSelecionada").addEventListener("change", function () {
+            var data = this.value;
+            fetch(`/ExibirAgendamentosBarbearia/BuscarAgendamentos?dataSelecionada=${data}`)
+                .then(response => {
+                    if (!response.ok) throw new Error("Erro ao buscar dados");
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById("agendamentos-container").innerHTML = html;
+                })
+                .catch(error => {
+                    console.error("Erro:", error);
+                });
+        });
+    </script>
+}

@@ -1,0 +1,29 @@
+﻿@model List<Hairday.Models.Agendamento>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">Nenhum agendamento nesta data.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var agendamento in Model)
+        {
+            var servico = agendamento.agendamento_servicos.FirstOrDefault()?.servico;
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@agendamento.cliente.nome</h5>
+                        <p class="card-text">
+                            <strong>Barbeiro:</strong> @agendamento.barbeiro.nome<br />
+                            <strong>Serviço:</strong> @servico?.nome_servico<br />
+                            <strong>Telefone do Cliente:</strong> @agendamento.cliente.telefone
+                        </p>
+                        <span class="badge bg-primary">@agendamento.hora.ToString(@"hh\:mm")</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
