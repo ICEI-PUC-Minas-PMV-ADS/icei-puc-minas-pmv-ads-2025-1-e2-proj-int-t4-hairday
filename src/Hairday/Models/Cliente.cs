@@ -1,4 +1,5 @@
 ﻿// Modelo Cliente
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace Hairday.Models
@@ -21,6 +22,7 @@ namespace Hairday.Models
 
         public string telefone { get; set; }
 
+        [ValidateNever]
         public ICollection<Agendamento> agendamentos { get; set; }
     }
 }

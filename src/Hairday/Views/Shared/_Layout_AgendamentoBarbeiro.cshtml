@@ -1,16 +1,26 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Hairday</title>
+    <title>Agendamentos - Hairday</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/cabecalhoBarbeiro.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/cliente.css" />
+    <link rel="stylesheet" href="~/css/AgendamentoBarbeiro.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Hairday.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Inter', sans-serif;
+            color: #333;
+        }
+
+        #main-content {
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <header class="header-black">
@@ -37,19 +47,34 @@
                 <a href="../Home/FiltrarPorMassagem">Massagem</a>
             </div>
         </nav>
-        <div class="login-link">
-            <a href="../Account/Login">Login</a>
+        
         </div>
     </header>
- 
+
     <main id="main-content" role="main">
         @RenderBody()
     </main>
 
-  
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Função para o filtro "Mostrar só horários agendados"
+        document.getElementById('mostrarAgendados').addEventListener('change', function() {
+            const slots = document.querySelectorAll('.slot-horario');
+
+            if (this.checked) {
+                slots.forEach(slot => {
+                    if (!slot.classList.contains('ocupado')) {
+                        slot.style.display = 'none';
+                    }
+                });
+            } else {
+                slots.forEach(slot => {
+                    slot.style.display = 'block';
+                });
+            }
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

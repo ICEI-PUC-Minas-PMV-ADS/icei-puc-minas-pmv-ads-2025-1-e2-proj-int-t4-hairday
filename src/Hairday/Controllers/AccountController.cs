@@ -33,14 +33,18 @@ public class AccountController : Controller
         }
 
         // Autenticar como Barbeiro
+        // Autenticar como Barbeiro
         var barbeiro = _context.Barbeiros.SingleOrDefault(b => b.email == email && b.senha == senha);
         if (barbeiro != null)
         {
             HttpContext.Session.SetString("tipo", "barbeiro");
             HttpContext.Session.SetString("nome", barbeiro.nome);
-            HttpContext.Session.SetString("documento", barbeiro.CPF_barbeiro);
-            return RedirectToAction("Perfil", "Barbeiro");
+            HttpContext.Session.SetString("CPF_Barbeiro", barbeiro.CPF_barbeiro);
+            HttpContext.Session.SetString("TipoUsuario", "barbeiro");
+
+            return RedirectToAction("Index", "AgendamentoBarbeiro"); // ✅ redirecionamento
         }
+
 
         // Autenticar como Dono da Barbearia
         var dono = _context.Barbearias.SingleOrDefault(d => d.email == email && d.senha == senha);

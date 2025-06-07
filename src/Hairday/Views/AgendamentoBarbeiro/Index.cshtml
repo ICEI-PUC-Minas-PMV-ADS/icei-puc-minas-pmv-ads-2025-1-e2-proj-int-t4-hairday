@@ -1,0 +1,155 @@
+﻿@{
+    Layout = "_Layout_AgendamentoBarbeiro";
+}
+
+<div class="pagina-agendamentos">
+    <h2 class="titulo-agendamentos">Seus agendamentos:</h2>
+
+    <div class="conteudo-agendamentos">
+        <!-- Coluna Esquerda (Agenda) -->
+        <div class="coluna-esquerda">
+            <!-- Datas -->
+            <div class="card-secao">
+                <div class="secao-datas">
+                    <label class="titulo-secao">Datas</label>
+                    <div class="dropdown-container">
+                       <select id="dataSelecionada" name="dataSelecionada" onchange="location = this.value" class="seletor-datas">
+                     @foreach (var data in Model.ProximasDatas)
+{
+                     var selectedAttribute = data == Model.DataSelecionada ? " selected=\"selected\"" : "";
+
+                    @: <option value="@Url.Action("Index", new { dataSelecionada = data.ToString("yyyy-MM-dd") })"@selectedAttribute>@data.ToString("dd/MM/yy")</option>
+}
+
+            }
+
+            }
+
+                    }
+                    </select>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horários Agendados -->
+            <div class="card-secao">
+                <div class="secao-horarios">
+                    <label class="titulo-secao">Horários Agendados</label>
+                    <div class="lista-horarios">
+                        @foreach (var horario in Model.HorariosDisponiveis)
+                        {
+                            if (horario.ocupado)
+                            {
+                                var selecionado = Model.HorarioSelecionadoId == horario.id_horario ? "selecionado" : "";
+                                <div class="slot-horario @selecionado">
+                                    <a href="@Url.Action("Index", new { dataSelecionada = Model.DataSelecionada?.ToString("yyyy-MM-dd"), horarioId = horario.id_horario })">
+                                        @horario.hora.ToString("hh\\:mm")
+                                    </a>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="coluna-central">
+
+    @* Mensagens de sucesso/erro dentro da coluna central *@
+    @if (TempData["Mensagem"] != null)
+    {
+        <div class="alert mensagem-sucesso" role="alert">
+            @TempData["Mensagem"]
+        </div>
+    }
+
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert mensagem-erro" role="alert">
+            @TempData["Erro"]
+        </div>
+    }
+
+    @if (Model.MostrarDetalhes && Model.AgendamentoSelecionado != null)
+    {
+        <div class="card-agendamento">
+            <h3>AGENDAMENTO</h3>
+            <div class="detalhes-agendamento">
+                <div class="detalhe-item">
+                    <span class="detalhe-label">Cliente:</span>
+                    <span class="detalhe-valor">@Model.ClienteDoAgendamento.nome</span>
+                </div>
+                <div class="detalhe-item">
+                    <span class="detalhe-label">Telefone:</span>
+                    <span class="detalhe-valor">@Model.ClienteDoAgendamento.telefone</span>
+                </div>
+                <div class="detalhe-item">
+                    <span class="detalhe-label">Serviço:</span>
+                    <span class="detalhe-valor">@string.Join(", ", Model.Servicos)</span>
+                </div>
+            </div>
+
+            <div class="botoes-agendamento">
+                <form method="get" asp-action="Index" class="form-botao">
+                    <input type="hidden" name="idAgendamentoRemarcar" value="@Model.AgendamentoSelecionado.id_agendamento" />
+                    <input type="hidden" name="dataSelecionada" value="@Model.DataSelecionada?.ToString("yyyy-MM-dd")" />
+                    <button type="submit" class="btn btn-remarcar">
+                        <i class="bi bi-calendar-check"></i> REMARCAR
+                    </button>
+                </form>
+
+                <form method="post" asp-action="Cancelar" class="form-botao">
+                    <input type="hidden" name="idAgendamento" value="@Model.AgendamentoSelecionado.id_agendamento" />
+                    <button type="submit" class="btn btn-cancelar">
+                        <i class="bi bi-x-circle"></i> CANCELAR
+                    </button>
+                </form>
+            </div>
+        </div>
+    }
+
+    @if (Model.EmModoRemarcacao)
+    {
+        <div class="card-remarcacao">
+            <h3 class="titulo-remarcacao">ESCOLHA UM NOVO HORÁRIO</h3>
+            <form method="post" asp-action="ConfirmarRemarcacao" id="formRemarcacao">
+                <input type="hidden" name="idAgendamento" value="@Model.IdAgendamentoRemarcando" />
+                <select name="novoHorarioId" class="seletor-horarios">
+                    @foreach (var h in Model.HorariosDisponiveis)
+                    {
+                        if (h.id_horario == Model.HorarioSelecionadoId)
+                        {
+                            <option value="@h.id_horario" selected="selected">
+                                @h.hora.ToString("hh\\:mm") - @h.data.ToString("dd/MM/yyyy")
+                            </option>
+                        }
+                        else
+                        {
+                            <option value="@h.id_horario">
+                                @h.hora.ToString("hh\\:mm") - @h.data.ToString("dd/MM/yyyy")
+                            </option>
+                        }
+                    }
+                </select>
+                <div class="botoes-remarcacao">
+                    <button type="submit" class="btn btn-confirmar">
+                        <i class="bi bi-check-circle"></i> CONFIRMAR NOVA DATA
+                    </button>
+                    <a href="@Url.Action("Index", new { dataSelecionada = Model.DataSelecionada?.ToString("yyyy-MM-dd") })" class="btn btn-cancelar-remarcacao">
+                        <i class="bi bi-x-circle"></i> CANCELAR
+                    </a>
+                </div>
+            </form>
+        </div>
+    }
+</div>
+
+
+
+        <!-- Coluna Direita -->
+        <div class="coluna-direita">
+            <img src="/img/cliente.png" alt="Imagem barbeiro" class="imagem-principal" />
+        </div>
+    </div>
+</div>

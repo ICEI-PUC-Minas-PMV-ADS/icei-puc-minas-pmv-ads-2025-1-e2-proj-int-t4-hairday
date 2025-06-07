@@ -33,25 +33,13 @@
 				<span asp-validation-for="telefone" class="text-danger"></span>
 
 				<button type="submit">Cadastrar-se</button>
-
-				@if (TempData["Mensagem"] != null)
-				{
-					<div id="msg-alert" class="alert alert-success mt-3">
-						@TempData["Mensagem"]
-					</div>
-				}
-				@if (TempData["Erro"] != null)
-				{
-					<div id="msg-alert" class="alert alert-danger mt-3">
-						@TempData["Erro"]
-					</div>
-				}
 			</form>
-		</div>
-	</div>
-</div>
 
 @section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+
 	<script>
 		window.addEventListener('DOMContentLoaded', () => {
 			const alert = document.getElementById('msg-alert');
