@@ -13,7 +13,7 @@
 
     <div class="form-container">
         <div class="frame frame-form">
-            <form method="post" onsubmit="return validarSenhas()">
+            <form method="post" onsubmit="return prepararFormulario()">
                 <table class="form-table">
                     <tr>
                         <td>@Html.LabelFor(m => m.nome)</td>
@@ -67,22 +67,25 @@
 
 @section Scripts {
     <script>
-        // Máscara de CNPJ sem biblioteca
+        // Aplica a máscara enquanto o usuário digita
         function formatarCNPJ(campo) {
             let valor = campo.value.replace(/\D/g, '');
-
             if (valor.length > 14) valor = valor.substring(0, 14);
-
             valor = valor.replace(/^(\d{2})(\d)/, '$1.$2');
             valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
             valor = valor.replace(/\.(\d{3})(\d)/, '.$1/$2');
             valor = valor.replace(/(\d{4})(\d)/, '$1-$2');
-
             campo.value = valor;
         }
 
-        // Validação de senhas
-        function validarSenhas() {
+        // Remove a máscara do CNPJ antes de enviar o formulário
+        function limparMascaraCNPJ() {
+            const campo = document.getElementById("cnpj");
+            campo.value = campo.value.replace(/\D/g, '');
+        }
+
+        // Validação de senha + limpeza do CNPJ antes de submeter
+        function prepararFormulario() {
             const senha = document.getElementById("senha").value;
             const confirmar = document.getElementById("confirmarSenha").value;
 
@@ -90,6 +93,8 @@
                 alert("As senhas não coincidem.");
                 return false;
             }
+
+            limparMascaraCNPJ();
             return true;
         }
     </script>
