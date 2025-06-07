@@ -2,106 +2,102 @@
 
 @{
     ViewData["Title"] = "Selecionar Horário";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Agendar_Horario.cshtml";
 }
 
-<h2>Selecionar Horário</h2>
+<div class="container">
 
-<div>
-    <label for="dataSelect">Escolha uma data:</label>
-    <select id="dataSelect" class="form-select">
-        <option value="">-- Selecione --</option>
-        @foreach (var data in ViewBag.Datas)
-        {
-            <option value="@data.ToString("yyyy-MM-dd")">@data.ToString("dd/MM/yyyy")</option>
-        }
-    </select>
+    <div class="left-container">
+
+        <div class="datas-container">
+            <label class="title" for="dataSelect">Escolha data e horário:</label>
+            <select id="dataSelect" class="form-select">
+                <option value="">Datas</option>
+                @foreach (var data in ViewBag.Datas)
+                {
+                    <option class="datas" value="@data.ToString("yyyy-MM-dd")">@data.ToString("dd/MM/yyyy")</option>
+                }
+            </select>
+        </div>
+
+        <div id="horariosContainer">
+            @* Horários carregados via AJAX *@
+        </div>
+
+    </div>
+
+    <div class="middle-container">
+
+        <div id="resumoBox" style="display: none;">
+            <h4>Resumo do Agendamento</h4>
+            <p><strong>Barbeiro:</strong> <span id="resumoBarbeiro">Carlos Mendes</span></p>
+            <p><strong>Serviço:</strong> <span id="resumoServico">Corte Masculino</span></p>
+            <p><strong>Preço:</strong> R$ <span id="resumoPreco">40.00</span></p>
+            <p><strong>Data:</strong> <span id="resumoData">05/06/2025</span></p>
+            <p><strong>Horário:</strong> <span id="resumoHora">09:00</span></p>
+        </div>
+
+        <form method="post" asp-action="AgendarHorario" asp-controller="AgendarHorario">
+            <input type="hidden" name="dataSelecionada" id="input-data" value="">
+            <input type="hidden" name="horaSelecionada" id="input-hora" value="">
+            <button type="submit" class="botao-agendar">Agendar</button>
+        </form>
+
+    </div>
+
+    <div class="right-container">
+        <img src="~/img/img_agendar_horario.png" alt="Imagem de agendamento" />
+    </div>
+
 </div>
-
-<br />
-
-<div id="horariosContainer">
-    <!-- Aqui os horários disponíveis serão carregados -->
-</div>
-
-<div id="resumoBox" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9;">
-    <h4>Resumo do Agendamento</h4>
-    <p><strong>Barbeiro:</strong> <span id="resumoBarbeiro"></span></p>
-    <p><strong>Serviço:</strong> <span id="resumoServico"></span></p>
-    <p><strong>Preço:</strong> R$ <span id="resumoPreco"></span></p>
-    <p><strong>Data:</strong> <span id="resumoData"></span></p>
-    <p><strong>Horário:</strong> <span id="resumoHora"></span></p>
-</div>
-
-<form method="post"
-      asp-action="AgendarHorario"
-      asp-controller="AgendarHorario">
-
-    <input type="hidden"
-           name="dataSelecionada"
-           id="input-data">
-
-    <input type="hidden"
-           name="horaSelecionada"
-           id="input-hora">
-
-    <button type="submit"
-            class="btn btn-success mt-2">
-        Agendar
-    </button>
-</form>
 
 @section Scripts {
     <script>
-                $(document).ready(function () {
-            // Handler para mudança de data
+        $(document).ready(function () {
+
+            // Quando uma data é selecionada
             $('#dataSelect').change(function () {
                 const selectedDate = $(this).val();
 
                 if (selectedDate) {
-                    $.get('/AgendarHorario/HorariosPorData',
-                        { data: selectedDate },
-                        function (html) {
-                            $('#horariosContainer').html(html);
-                            $('#resumoBox').hide();
-                        }
-                    );
+                    $.get('/AgendarHorario/HorariosPorData', { data: selectedDate }, function (html) {
+                        $('#horariosContainer').html(html);
+                        $('#resumoBox').hide();
+                        $('#input-data').val('');
+                        $('#input-hora').val('');
+                    });
                 } else {
                     $('#horariosContainer').empty();
                     $('#resumoBox').hide();
                 }
             });
 
-            // Handler para seleção de horário
+            // Quando um horário é selecionado
             $(document).on('change', 'input[name="horarioSelecionado"]', function () {
                 const selectedDate = $('#dataSelect').val();
                 const selectedHora = $(this).val();
 
                 if (selectedDate && selectedHora) {
-                    // Atualiza campos hidden do formulário
                     $('#input-data').val(selectedDate);
                     $('#input-hora').val(selectedHora);
 
-                    // Busca dados para o resumo
                     $.get('/AgendarHorario/DadosResumo',
                         {
                             data: selectedDate,
                             hora: selectedHora
                         },
                         function (data) {
-                            // Preenche dados do resumo
                             $('#resumoBarbeiro').text(data.nomeBarbeiro);
                             $('#resumoServico').text(data.nomeServico);
                             $('#resumoPreco').text(data.preco.toFixed(2));
                             $('#resumoData').text(data.data);
                             $('#resumoHora').text(data.hora);
 
-                            // Exibe a box de resumo
                             $('#resumoBox').show();
-                        }
-                    );
+                        });
                 }
             });
+
         });
     </script>
 }

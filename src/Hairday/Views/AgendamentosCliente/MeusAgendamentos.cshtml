@@ -1,10 +1,20 @@
 ﻿@model IEnumerable<Hairday.Models.Agendamento>
 
+
 @{
     ViewData["Title"] = "Meus Agendamentos";
+    Layout = "~/Views/Shared/_Layout_Meus_Agendamentos.cshtml";
 }
 
+
 <h2>Meus Agendamentos</h2>
+
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Mensagem"]
+    </div>
+}
 
 <div class="row">
     @foreach (var agendamento in Model)

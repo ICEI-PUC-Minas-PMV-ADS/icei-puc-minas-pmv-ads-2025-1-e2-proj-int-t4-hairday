@@ -68,7 +68,7 @@ namespace Hairday.Controllers
             _context.Servicos.AddRange(servicosParaSalvar);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index", "Servico");
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> Index()
