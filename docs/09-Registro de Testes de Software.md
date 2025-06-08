@@ -42,6 +42,17 @@ Registro de evidência CT-04
 
 https://github.com/user-attachments/assets/37862251-e82a-40e7-95bc-e8dd7a6f49b7
 
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT 005 – Agendar horário como cliente                                       |
+| **Pré-condições**             | Estar logado como cliente                                                   |
+| **Procedimento (passo a passo)** | 1. O usuário acessa a página da barbearia <br>2. O usuário seleciona um serviço <br>3. O usuário seleciona uma data <br>4. O usuário seleciona um horário disponível <br>5. O usuário clica em "Agendar" |
+| **Dados de entrada**          | Barbearia: Corte Fino <br>Barbeiro: Isaque <br>Serviço: Corte <br>Data: 08/06/2025 <br>Horário: 10:00 |
+| **Resultado esperado (RE)**   | O usuário faz o agendamento e é redirecionado para a página "Meus Agendamentos", onde é possível ver o agendamento |
+| **Resultado obtido (RO)**     | O usuário foi redirecionado para a página "Meus Agendamentos" e o agendamento se encontra ao final da página |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Sem erros                                                      |
+| **Evidência (print screen)**  | ![print_hairday_1](https://github.com/user-attachments/assets/8770fd88-eb8b-4055-8a51-852a2cc97f71) |
+
 
 
 ## Relatório de testes de software
