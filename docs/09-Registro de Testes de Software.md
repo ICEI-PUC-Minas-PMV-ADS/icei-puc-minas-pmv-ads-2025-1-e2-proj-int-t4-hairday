@@ -14,7 +14,7 @@
 | **Caso de Teste**             | CT 002 – Ver horários agendados como barbeiro                                                     |
 | **Pré-condições**             | Estar logado como barbeiro                                                    |
 | **Procedimento (passo a passo)** | 1) Verificar a listagem de horários agendados. <br> 2)	Confirmar se os detalhes de cada agendamento (cliente, serviço, horário, telefone) estão visíveis corretamente. |
-| **Dados de entrada**          |                               |
+| **Dados de entrada**          |   Data: 10/06/2025, Horário : 09:00                            |
 | **Resultado esperado (RE)**   | Ver os horários agendados            |
 | **Resultado obtido (RO)**     | Ver os horários agendados            |
 | **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                        |
@@ -25,8 +25,8 @@
 | **Caso de Teste**             | CT 003 – Visualizar horários reservados da barbearia                                                     |
 | **Pré-condições**             | Estar logado como dono da barbearia                                                     |
 | **Procedimento (passo a passo)** | 1) Acessar o sistema com login e senha válidos como dono da barbearia. <br> 2) Verificar a listagem dos horários já agendados, com os nomes dos barbeiros, horários e clientes.|
-| **Dados de entrada**          |                                |
+| **Dados de entrada**          |  Data: 10/06/2025                              |
 | **Resultado esperado (RE)**   | Visualizar horários reservados da barbearia             |
-| **Resultado obtido (RO)**     | Visualizar horários reservados da barbearia                        |
+| **Resultado obtido (RO)**     | Visualizados horários reservados da barbearia                        |
 | **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                          |
 | **Evidência (print screen)**  | ![image](https://github.com/user-attachments/assets/9903d340-e5f3-4f55-a7c8-2ce0502d6d75) |
