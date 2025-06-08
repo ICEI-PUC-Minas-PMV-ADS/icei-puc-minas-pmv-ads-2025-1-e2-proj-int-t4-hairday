@@ -1,5 +1,44 @@
 # Registro de Testes de Software
 
+
+| **Campo**                     | **Descrição**                                                                                                                                      |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Caso de Teste**            | CT 003 – Cadastrar a barbearia                                                                                                                     |
+| **Pré-condições**            | Criar uma nova barbearia                                                                                                                           |
+| **Procedimento**             | 1) O usuário acessa a página "Cadastre sua barbearia"<br>2) O usuário insere os dados da barbearia<br>3) O usuário seleciona "Cadastrar"<br>4) O usuário seleciona um horário disponível |
+| **Dados de entrada**         | Barbearia: Corte Top<br>Cidade: Belo Horizonte<br>CNPJ: 12.323.333/333-34<br>Telefone: 31998295467<br>E-mail: cortetop@gmail.com<br>Senha: 1234<br>Confirmar senha: 1234<br>Endereço: Rua das Flores |
+| **Resultado esperado (RE)**  | O usuário faz o cadastro de sua barbearia e é redirecionado para a página "Login", onde é possível fazer o login.                                |
+| **Resultado obtido (RO)**    | Depois de programar, o usuário fez o login.                                                                                                       |
+| **Avaliação**                | RE = RO → **Não pegou erro**<br>RE ≠ RO → Pegou erro                                                                                               |
+| **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/6a550554-7148-4253-815b-58b3e45578db)                                                     |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>, <a href="8-Plano de Testes de Software.md"> Plano de Testes de Software</a>
 
 Para cada caso de teste definido no Plano de Testes de Software, realize o registro das evidências dos testes feitos na aplicação pela equipe, que comprovem que o critério de êxito foi alcançado (ou não!!!). Para isso, utilize uma ferramenta de captura de tela que mostre cada um dos casos de teste definidos (obs.: cada caso de teste deverá possuir um vídeo do tipo _screencast_ para caracterizar uma evidência do referido caso).
