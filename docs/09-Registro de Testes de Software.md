@@ -17,7 +17,7 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Caso de Teste** 	| **CT07 – Reagendar horários como barbeiro** 	|
 |Pré-condições | Estar logado tendo um cadastro como barbeiro. |
 | Procedimento (passo à passo)	|  1) Logar como barbeiro para acessar a página de agendamentos <br> 2) Clicar em um horário agendado para exibição dos detalhes de agendamento <br> 3) Clicar em remarcar para exibição dos horários disponíveis para remarcação <br> 4) Escolher um novo horário <br> 5) Confirmar a remarcação.|
-| Dados de entrada	| 10/06/2025 - 20h:30  |
+| Dados de entrada	| 08/06/2025 - 20h:30  |
 |Resultado esperado (RE) | Mensagem de sucesso informando que o horário foi remarcado. |
 | Resultado obtido (RO) 	| Mensagem foi exibida após o sucesso da execução 	|
 | Avaliação (pegou / não pegou erro) 	| RE = Não pegou erro <br> RO = Não pegou erro 	|
@@ -26,7 +26,7 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Caso de Teste** 	| **CT08 – Cancelar horários como barbeiro**	|
 |Pré-condições | Estar logado tendo um cadastro como barbeiro. |
 | Procedimento (passo à passo)	|  1) Logar como barbeiro para acessar a página de agendamentos <br> 2) Clicar em um horário agendado para exibição dos detalhes de agendamento <br> 3) Clicar em cancelar para anular um agendamento|
-| Dados de entrada	| 10/06/2025 - 20h:45   |
+| Dados de entrada	| 08/06/2025 - 20h:45   |
 |Resultado esperado (RE) | Mensagem de sucesso informando que o horário foi cancelado. |
 | Resultado obtido (RO) 	| Mensagem foi exibida após o sucesso do cancelamento 	|
 | Avaliação (pegou / não pegou erro) 	| RE = Não pegou erro <br> RO = Não pegou erro 	|
