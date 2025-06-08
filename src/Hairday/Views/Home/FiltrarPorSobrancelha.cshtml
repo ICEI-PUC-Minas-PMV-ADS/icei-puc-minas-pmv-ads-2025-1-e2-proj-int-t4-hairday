@@ -26,7 +26,11 @@
                         <p><strong>Nome do Barbeiro:</strong> @barbearia.barbeiros</p>
                     </div>
                     <div class="card-footer d-flex justify-content-between">
-                        <a href="#" class="btn btn-dark w-50 me-1 shadow">Ver Barbearia</a>
+                        <a asp-controller="EscolhaServico"
+                           asp-action="Detalhes"
+                           asp-route-cnpj=@barbearia.CNPJ_barbearia class="btn btn-dark w-50 me-1 shadow">
+                            Ver Barbearia
+                        </a>
                     </div>
                 </div>
             </div>
