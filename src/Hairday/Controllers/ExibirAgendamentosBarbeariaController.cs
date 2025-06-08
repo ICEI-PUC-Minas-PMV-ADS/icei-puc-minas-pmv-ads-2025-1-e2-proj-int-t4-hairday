@@ -32,14 +32,15 @@ namespace Hairday.Controllers
                 return BadRequest("Data inválida.");
             }
 
-            var CNPJ_barbearia = HttpContext.Session.GetInt32("CNPJ_barbearia");
+
+            var CNPJ_barbearia = HttpContext.Session.GetString("CNPJ_barbearia");
 
             var agendamentos = await _context.Agendamentos
                 .Include(a => a.cliente)
                 .Include(a => a.barbeiro)
                 .Include(a => a.agendamento_servicos)
                     .ThenInclude(ags => ags.servico)
-                .Where(a => a.data == data && a.barbeiro.CNPJ_barbearia == CNPJ_barbearia.ToString())
+                .Where(a => a.data == data && a.barbeiro.CNPJ_barbearia == CNPJ_barbearia)
                 .ToListAsync();
 
             return PartialView("Views/ExibirAgendamentosBarbearia/_HorariosReservados.cshtml", agendamentos);

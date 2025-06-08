@@ -139,6 +139,7 @@ namespace Hairday.Controllers
 
             if (horarioDb != null)
             {
+                horarioDb.id_agendamento = agendamento.id_agendamento;
                 horarioDb.ocupado = true;
                 _context.Update(horarioDb);
             }

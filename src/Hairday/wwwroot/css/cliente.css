@@ -1,80 +1,128 @@
-﻿body, html {
-    height: 100%;
+﻿/* cliente.css ATUALIZADO */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
 }
 
-.container {
-    display: flex;
-    align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* (opcional) centraliza horizontalmente se quiser */
+body, html {
     height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
-.left-side,
-.right-side {
-    flex: 1;
+.main-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
 }
 
-    .left-side img {
+.image-side {
+    width: 70%;
+    position: relative;
+}
+
+    .image-side .imagem-fundo {
         width: 100%;
-        height: auto;
-        display: block;
+        height: 100%;
+        object-fit: cover;
     }
 
-.right-side {
-    padding: 40px;
-    background-color: white;
+.form-side {
+    width: 30%;
+    background-color: #fff;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    overflow-y: auto;
 }
 
-.form-container {
-    max-width: 400px;
+.form-box {
     width: 100%;
+    max-width: 400px;
+    padding: 40px;
 }
 
 .logo {
-    height: 60px;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 24px;
-    margin: 10px 0;
-}
-
-p {
-    font-size: 14px;
-    color: #555;
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+    .logo img {
+        max-width: 150px;
+        height: auto;
+    }
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
 }
 
 input {
-    padding: 10px;
-    margin-bottom: 15px;
+    width: 100%;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 14px;
 }
 
+    input:focus {
+        border-color: #2b1d17;
+        outline: none;
+    }
+
+.text-danger {
+    display: block;
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
 button {
+    width: 100%;
     padding: 12px;
-    background-color: #3b241c;
-    color: white;
+    background-color: #2b1d17;
+    color: #fff;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 6px;
+    font-weight: bold;
     cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
     button:hover {
-        background-color: #2a1a14;
+        background-color: #3a2b21;
     }
+
+.register {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+    .register a {
+        color: #2b1d17;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .register a:hover {
+            text-decoration: underline;
+        }
