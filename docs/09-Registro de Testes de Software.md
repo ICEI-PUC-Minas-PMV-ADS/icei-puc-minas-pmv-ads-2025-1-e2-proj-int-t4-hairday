@@ -13,6 +13,25 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |:---:	|:---:	|
 |	Requisito Associado 	| RF-00Y - A aplicação deve permitir que um usuário previamente cadastrado faça login |
 |Registro de evidência | www.teste.com.br/drive/ct-02 |
+|  	|  	|
+| **Caso de Teste** 	| **CT07 – Reagendar horários como barbeiro** 	|
+|Pré-condições | Estar logado tendo um cadastro como barbeiro. |
+| Procedimento (passo à passo)	|  1) Logar como barbeiro para acessar a página de agendamentos <br> 2) Clicar em um horário agendado para exibição dos detalhes de agendamento <br> 3) Clicar em remarcar para exibição dos horários disponíveis para remarcação <br> 4) Escolher um novo horário <br> 5) Confirmar a remarcação.|
+| Dados de entrada	| Selecionar um horário marcado e fazer a remarcação.   |
+|Resultado esperado (RE) | Mensagem de sucesso informando que o horário foi remarcado. |
+| Resultado obtido (RO) 	| Mensagem foi exibida após o sucesso da execução 	|
+| Avaliação (pegou / não pegou erro) 	| RE = Não pegou erro <br> RO = Não pegou erro 	|
+| Evidência  	| ![Capturar3](https://github.com/user-attachments/assets/c8151c23-6229-448e-8922-ff5fdb0e90cc)|
+|  	|  	|
+| **Caso de Teste** 	| **CT08 – Cancelar horários como barbeiro**	|
+|Pré-condições | Estar logado tendo um cadastro como barbeiro. |
+| Procedimento (passo à passo)	|  1) Logar como barbeiro para acessar a página de agendamentos <br> 2) Clicar em um horário agendado para exibição dos detalhes de agendamento <br> 3) Clicar em cancelar para anular um agendamento|
+| Dados de entrada	| Selecionar um horário marcado e fazer o cancelamento.   |
+|Resultado esperado (RE) | Mensagem de sucesso informando que o horário foi cancelado. |
+| Resultado obtido (RO) 	| Mensagem foi exibida após o sucesso do cancelamento 	|
+| Avaliação (pegou / não pegou erro) 	| RE = Não pegou erro <br> RO = Não pegou erro 	|
+| Evidência  	|![Capturar4](https://github.com/user-attachments/assets/45816f11-0cb5-4d3c-896a-8f4fe08cf396)|
+|  	|  	|
 
 ## Relatório de testes de software
 
