@@ -24,33 +24,26 @@
 </head>
 <body>
     <header class="header-black">
-        <div class="img-logo">
-            <img class="logo-img" src="~/img/logo.png">
-        </div>
-        <div class="nav-link">
-            <a href="#">Homepage</a>
-            <a asp-controller="Home" asp-action="Index">Homepage</a>
-        </div>
-        <div class="nav-link">
-            <a href="#">Cabelo</a>
-            <a asp-controller="Home" asp-action="FiltrarPorCabelo">Cabelo</a>
-        </div>
-        <div class="nav-link">
-            <a href="#">Barba</a>
-            <a asp-controller="Home" asp-action="FiltrarPorBarba">Barba</a>
-        </div>
-        <div class="nav-link">
-            <a href="#">SPA</a>
-            <a asp-controller="Home" asp-action="FiltrarPorSpa">SPA</a>
-        </div>
-        <div class="nav-link">
-            <a href="#">Sobrancelha</a>
-            <a asp-controller="Home" asp-action="FiltrarPorSobrancelha">Sobrancelha</a>
-        </div>
-        <div class="nav-link">
-            <a href="#">Massagem</a>Add commentMore actions
-            <a asp-controller="Home" asp-action="FiltrarPorMassagem">Massagem</a>
-        </div>
+        <nav class="nav-links">
+            <div class="nav-link">
+                <a asp-controller="Home" asp-action="Index">Homepage</a>
+            </div>
+            <div class="nav-link">
+                <a asp-controller="Home" asp-action="FiltrarPorCabelo">Cabelo</a>
+            </div>
+            <div class="nav-link">
+                <a asp-controller="Home" asp-action="FiltrarPorBarba">Barba</a>
+            </div>
+            <div class="nav-link">
+                <a asp-controller="Home" asp-action="FiltrarPorSpa">SPA</a>
+            </div>
+            <div class="nav-link">
+                <a asp-controller="Home" asp-action="FiltrarPorSobrancelha">Sobrancelha</a>
+            </div>
+            <div class="nav-link">
+                <a asp-controller="Home" asp-action="FiltrarPorMassagem">Massagem</a>
+            </div>
+        </nav>
     </header>
 
     <main id="main-content" role="main">
