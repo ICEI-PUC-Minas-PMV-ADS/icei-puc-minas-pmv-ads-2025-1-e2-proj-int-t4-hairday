@@ -14,6 +14,16 @@
 
 
 
+| **Campo**                     | **Descrição**                                                                                                                                      |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Caso de Teste**            | CT 008 – Escolha de um profissional                                                                                                                 |
+| **Pré-condições**            | Estar logado como cliente                                                                                                                           |
+| **Procedimento**             | 1) O usuário acessa a página da barbearia<br>2) O usuário seleciona uma barbearia<br>3) O usuário seleciona "Cadastrar"<br>4) O usuário visualiza barbeiros e serviços disponíveis |
+| **Dados de entrada**         | Login: carlos@gmail.com<br>Senha: senha123                                                                                                          |
+| **Resultado esperado (RE)**  | O usuário seleciona uma barbearia e visualiza barbeiros e serviços disponíveis.                                                                    |
+| **Resultado obtido (RO)**    | O usuário visualiza barbeiros e serviços.                                                                                                           |
+| **Avaliação**                | RE = RO → **Não pegou erro**<br>RE ≠ RO → Pegou erro                                                                                               |
+| **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/5313812d-b6fc-4d55-9edd-b094a3375721)                                                       |
 
 
 
