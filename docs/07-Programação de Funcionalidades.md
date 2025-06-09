@@ -25,7 +25,7 @@
 # Instruções de Acesso ao Hairday
 
 
-Para acessar a aplicação EcoLogic como administrador, siga as orientações abaixo:
+Para acessar a aplicação Hairday, basta clicar no link abaixo:
 
 <br>
 
