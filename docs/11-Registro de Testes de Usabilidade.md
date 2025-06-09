@@ -99,7 +99,7 @@ Os testes de usabilidade foram realizados de forma presencial. Abaixo estão os 
 
 ### Observações
 
-Após a execução presencial dos testes de usabilidade, foi conseguimos observar pontos positivos e formas de melhoria na interface e na navegação da aplicação. Nos baseamos no tempo necessário para realizar as tarefas, quantidade de ações, quantidade de erros e observações.
+Após a execução presencial dos testes de usabilidade, conseguimos observar pontos positivos e formas de melhoria na interface e na navegação da aplicação. Nos baseamos no tempo necessário para realizar as tarefas, quantidade de ações, quantidade de erros e observações.
 
 ---
 
