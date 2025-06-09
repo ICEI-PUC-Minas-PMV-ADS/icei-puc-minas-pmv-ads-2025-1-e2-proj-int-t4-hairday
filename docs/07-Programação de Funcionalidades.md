@@ -29,4 +29,4 @@ Para acessar a aplicação EcoLogic como administrador, siga as orientações ab
 
 <br>
 
-🔗 **Link de Acesso:** [https://ecologic-adeqbxd2fuc8a8gm.eastus2-01.azurewebsites.net/](https://hair-teste-ayegc5e7eeevb3a8.brazilsouth-01.azurewebsites.net/)
+🔗 **Link de Acesso:** https://hair-teste-ayegc5e7eeevb3a8.brazilsouth-01.azurewebsites.net/
