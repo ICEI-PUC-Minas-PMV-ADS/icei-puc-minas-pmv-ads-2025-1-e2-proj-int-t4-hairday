@@ -135,3 +135,38 @@
 | **Evidência (print screen)**  |![Screenshot 2025-06-08 203720](https://github.com/user-attachments/assets/c23f942c-dd0d-44e3-8129-4723b592feba)|
 
 
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT 013 – Buscar Barbearia                                                    |
+| **Pré-condições**             | Estar na Homepage                                                    |
+| **Procedimento (passo a passo)** | 1) Digitar um nome de uma barbearia  <br> 2) É precionar a tecla ENTER|
+| **Dados de entrada**          | Nome fornecido: Corte                              |
+| **Resultado esperado (RE)**   | Apareca ao menos uma barbearia que tenha "Corte" em seu nome            |
+| **Resultado obtido (RO)**     | Três barbearias que tem a palavra "Corte" em seu nome (Corte Fino, Estilo Cortes e Rei do Corte)                         |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                       |
+| **Evidência (print screen)**  |![image](https://github.com/user-attachments/assets/336fa7de-d5db-4c11-82db-cb332193e3dc) |
+                                                                          
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT 014 – Agendar data e horário                                                    |
+| **Pré-condições**             | Estar logado no sistema                                                    |
+| **Procedimento (passo a passo)** | 1) Fazer Login. (caso nao esteja logado) <br> 2) Pesquisar a barbearia e seleciona-la. <br> 3) Selecionar o serviço e clicar em agendar <br> 4) Escolha um horario e aperte em "Agendar"|
+| **Dados de entrada**          | Data: 10/06/2025, Horario: 10:00                               |
+| **Resultado esperado (RE)**   | Agendar horario e redirecionar para a pagina Meus Agendamentos            |
+| **Resultado obtido (RO)**     | Depois de agendar horario, redirecionou para pagina de meus agendamentos e nao apresentou nenhum erro                        |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                        |
+| **Evidência (print screen)**  |![image](https://github.com/user-attachments/assets/7c6836a4-dec1-4fff-bc88-b591019c30c9)|
+
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT 015 – Login                                                    |
+| **Pré-condições**             | Não estar logado no sistema.                                                   |
+| **Procedimento (passo a passo)** | 1) fornecer dados como email e senha <br> 2) Clicar em Login |
+| **Dados de entrada**          | email: carlos@gmail.com, senha: senha123  (senha errada: senha1234)                          |
+| **Resultado esperado (RE)**   | Fazer Login e redirecionar para homepage e ao errar a senha aparecer na tela do usuario            |
+| **Resultado obtido (RO)**     | Ao fazer o login fui redirecionado para a homepage, e ao errar a senha fui sinalizado                      |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                        |
+| **Evidência (print screen)**  |![image](https://github.com/user-attachments/assets/e4c31bf6-62d0-4660-9b11-901f44e2fa94) |
+                                                                            
+
+
