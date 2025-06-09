@@ -20,7 +20,7 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | Dados de entrada	| 08/06/2025 - 20h:30  |
 |Resultado esperado (RE) | Mensagem de sucesso informando que o horário foi remarcado. |
 | Resultado obtido (RO) 	| Mensagem foi exibida após o sucesso da execução 	|
-| Avaliação (pegou / não pegou erro) 	| RE = Não pegou erro <br> RO = Não pegou erro 	|
+| Avaliação (pegou / não pegou erro) 	| RE = RO - Não pegou erro 	|
 | Evidência  	| ![Capturar3](https://github.com/user-attachments/assets/c8151c23-6229-448e-8922-ff5fdb0e90cc)|
 |  	|  	|
 | **Caso de Teste** 	| **CT08 – Cancelar horários como barbeiro**	|
@@ -29,7 +29,7 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | Dados de entrada	| 08/06/2025 - 20h:45   |
 |Resultado esperado (RE) | Mensagem de sucesso informando que o horário foi cancelado. |
 | Resultado obtido (RO) 	| Mensagem foi exibida após o sucesso do cancelamento 	|
-| Avaliação (pegou / não pegou erro) 	| RE = Não pegou erro <br> RO = Não pegou erro 	|
+| Avaliação (pegou / não pegou erro) 	|RE = RO - Não pegou erro 	|
 | Evidência  	|![Capturar4](https://github.com/user-attachments/assets/45816f11-0cb5-4d3c-896a-8f4fe08cf396)|
 |  	|  	|
 
