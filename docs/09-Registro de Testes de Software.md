@@ -27,6 +27,19 @@
 
 
 
+| **Campo**                     | **Descrição**                                                                                                                                      |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Caso de Teste**            | CT 011 – Gerente visualizar os horários reservados                                                                                                 |
+| **Pré-condições**            | Estar logado como cliente                                                                                                                           |
+| **Procedimento**             | 1) O usuário acessa a página da barbearia onde fez o agendamento<br>2) Seleciona "Meus agendamentos"<br>3) O usuário visualiza seu agendamento     |
+| **Dados de entrada**         | Login: carlos@gmail.com<br>Senha: senha123                                                                                                          |
+| **Resultado esperado (RE)**  | O usuário seleciona uma barbearia e visualiza sua barbearia.                                                                                       |
+| **Resultado obtido (RO)**    | O usuário visualiza seus agendamentos.                                                                                                              |
+| **Avaliação**                | RE = RO → **Não pegou erro**<br>RE ≠ RO → Pegou erro                                                                                                |
+| **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/365c762b-cc83-460a-a6bc-e6f5a0281e54)                                                       |
+
+
+
 
 
 
