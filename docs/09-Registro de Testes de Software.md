@@ -58,7 +58,7 @@
 
 | **Campo**                     | **Descrição**                                                                                                                                      |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Caso de Teste**            | CT 006 – Gerente visualizar os horários reservados                                                                                                 |
+| **Caso de Teste**            | CT 006 –  Cliente visualizar os seus horários reservados                                                                                                 |
 | **Pré-condições**            | Estar logado como cliente                                                                                                                           |
 | **Procedimento**             | 1) O usuário acessa a página da barbearia onde fez o agendamento<br>2) Seleciona "Meus agendamentos"<br>3) O usuário visualiza seu agendamento     |
 | **Dados de entrada**         | Login: carlos@gmail.com<br>Senha: senha123                                                                                                          |
