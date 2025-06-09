@@ -32,3 +32,37 @@
 | **Resultado obtido (RO)**     | Visualizados horários reservados da barbearia                        |
 | **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                          |
 | **Evidência (print screen)**  | ![image](https://github.com/user-attachments/assets/9903d340-e5f3-4f55-a7c8-2ce0502d6d75) |
+
+| **Campo**                     | **Descrição**                                                                                                                                      |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Caso de Teste**            | CT 003 – Cadastrar a barbearia                                                                                                                     |
+| **Pré-condições**            | Criar uma nova barbearia                                                                                                                           |
+| **Procedimento**             | 1) O usuário acessa a página "Cadastre sua barbearia"<br>2) O usuário insere os dados da barbearia<br>3) O usuário seleciona "Cadastrar"<br> |
+| **Dados de entrada**         | Barbearia: Corte Top<br>Cidade: Belo Horizonte<br>CNPJ: 12.323.333/333-34<br>Telefone: 31998295467<br>E-mail: cortetop@gmail.com<br>Senha: 1234<br>Confirmar senha: 1234<br>Endereço: Rua das Flores |
+| **Resultado esperado (RE)**  | O usuário faz o cadastro de sua barbearia e é redirecionado para a página "Login", onde é possível fazer o login.                                |
+| **Resultado obtido (RO)**    | Depois de programar, o usuário fez o login.                                                                                                       |
+| **Avaliação**                | RE = RO → **Não pegou erro**                                                                                        |
+| **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/6a550554-7148-4253-815b-58b3e45578db)                                                     |
+
+| **Campo**                     | **Descrição**                                                                                                                                      |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Caso de Teste**            | CT 008 – Escolha de um profissional                                                                                                                 |
+| **Pré-condições**            | Estar logado como cliente                                                                                                                           |
+| **Procedimento**             | 1) O usuário acessa a página da barbearia<br>2) O usuário seleciona uma barbearia<br>3) O usuário seleciona "Cadastrar"<br>4) O usuário visualiza barbeiros e serviços disponíveis |
+| **Dados de entrada**         | Login: carlos@gmail.com<br>Senha: senha123                                                                                                          |
+| **Resultado esperado (RE)**  | O usuário seleciona uma barbearia e visualiza barbeiros e serviços disponíveis.                                                                    |
+| **Resultado obtido (RO)**    | O usuário visualiza barbeiros e serviços.                                                                                                           |
+| **Avaliação**                | RE = RO → **Não pegou erro**                                                                                            |
+| **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/5313812d-b6fc-4d55-9edd-b094a3375721)                                                       |
+
+
+| **Campo**                     | **Descrição**                                                                                                                                      |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Caso de Teste**            | CT 011 – Gerente visualizar os horários reservados                                                                                                 |
+| **Pré-condições**            | Estar logado como cliente                                                                                                                           |
+| **Procedimento**             | 1) O usuário acessa a página da barbearia onde fez o agendamento<br>2) Seleciona "Meus agendamentos"<br>3) O usuário visualiza seu agendamento     |
+| **Dados de entrada**         | Login: carlos@gmail.com<br>Senha: senha123                                                                                                          |
+| **Resultado esperado (RE)**  | O usuário seleciona uma barbearia e visualiza sua barbearia.                                                                                       |
+| **Resultado obtido (RO)**    | O usuário visualiza seus agendamentos.                                                                                                              |
+| **Avaliação**                | RE = RO → **Não pegou erro**                                                                                         |
+| **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/365c762b-cc83-460a-a6bc-e6f5a0281e54)                                                       |
