@@ -9,7 +9,7 @@
 | **Dados de entrada**         | Barbearia: Corte Top<br>Cidade: Belo Horizonte<br>CNPJ: 12.323.333/333-34<br>Telefone: 31998295467<br>E-mail: cortetop@gmail.com<br>Senha: 1234<br>Confirmar senha: 1234<br>Endereço: Rua das Flores |
 | **Resultado esperado (RE)**  | O usuário faz o cadastro de sua barbearia e é redirecionado para a página "Login", onde é possível fazer o login.                                |
 | **Resultado obtido (RO)**    | Depois de programar, o usuário fez o login.                                                                                                       |
-| **Avaliação**                | RE = RO → **Não pegou erro**<br>RE ≠ RO → Pegou erro                                                                                               |
+| **Avaliação**                | RE = RO → **Não pegou erro**                                                                                        |
 | **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/6a550554-7148-4253-815b-58b3e45578db)                                                     |
 
 
@@ -22,7 +22,7 @@
 | **Dados de entrada**         | Login: carlos@gmail.com<br>Senha: senha123                                                                                                          |
 | **Resultado esperado (RE)**  | O usuário seleciona uma barbearia e visualiza barbeiros e serviços disponíveis.                                                                    |
 | **Resultado obtido (RO)**    | O usuário visualiza barbeiros e serviços.                                                                                                           |
-| **Avaliação**                | RE = RO → **Não pegou erro**<br>RE ≠ RO → Pegou erro                                                                                               |
+| **Avaliação**                | RE = RO → **Não pegou erro**                                                                                            |
 | **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/5313812d-b6fc-4d55-9edd-b094a3375721)                                                       |
 
 
@@ -35,7 +35,7 @@
 | **Dados de entrada**         | Login: carlos@gmail.com<br>Senha: senha123                                                                                                          |
 | **Resultado esperado (RE)**  | O usuário seleciona uma barbearia e visualiza sua barbearia.                                                                                       |
 | **Resultado obtido (RO)**    | O usuário visualiza seus agendamentos.                                                                                                              |
-| **Avaliação**                | RE = RO → **Não pegou erro**<br>RE ≠ RO → Pegou erro                                                                                                |
+| **Avaliação**                | RE = RO → **Não pegou erro**                                                                                         |
 | **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/365c762b-cc83-460a-a6bc-e6f5a0281e54)                                                       |
 
 
