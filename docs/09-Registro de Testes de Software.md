@@ -35,7 +35,7 @@
 
 | **Campo**                     | **Descrição**                                                                                                                                      |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Caso de Teste**            | CT 003 – Cadastrar a barbearia                                                                                                                     |
+| **Caso de Teste**            | CT 004 – Cadastrar a barbearia                                                                                                                     |
 | **Pré-condições**            | Criar uma nova barbearia                                                                                                                           |
 | **Procedimento**             | 1) O usuário acessa a página "Cadastre sua barbearia"<br>2) O usuário insere os dados da barbearia<br>3) O usuário seleciona "Cadastrar"<br> |
 | **Dados de entrada**         | Barbearia: Corte Top<br>Cidade: Belo Horizonte<br>CNPJ: 12.323.333/333-34<br>Telefone: 31998295467<br>E-mail: cortetop@gmail.com<br>Senha: 1234<br>Confirmar senha: 1234<br>Endereço: Rua das Flores |
@@ -46,7 +46,7 @@
 
 | **Campo**                     | **Descrição**                                                                                                                                      |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Caso de Teste**            | CT 008 – Escolha de um profissional                                                                                                                 |
+| **Caso de Teste**            | CT 005 – Escolha de um profissional                                                                                                                 |
 | **Pré-condições**            | Estar logado como cliente                                                                                                                           |
 | **Procedimento**             | 1) O usuário acessa a página da barbearia<br>2) O usuário seleciona uma barbearia<br>3) O usuário seleciona "Cadastrar"<br>4) O usuário visualiza barbeiros e serviços disponíveis |
 | **Dados de entrada**         | Login: carlos@gmail.com<br>Senha: senha123                                                                                                          |
@@ -58,7 +58,7 @@
 
 | **Campo**                     | **Descrição**                                                                                                                                      |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Caso de Teste**            | CT 011 – Gerente visualizar os horários reservados                                                                                                 |
+| **Caso de Teste**            | CT 006 – Gerente visualizar os horários reservados                                                                                                 |
 | **Pré-condições**            | Estar logado como cliente                                                                                                                           |
 | **Procedimento**             | 1) O usuário acessa a página da barbearia onde fez o agendamento<br>2) Seleciona "Meus agendamentos"<br>3) O usuário visualiza seu agendamento     |
 | **Dados de entrada**         | Login: carlos@gmail.com<br>Senha: senha123                                                                                                          |
