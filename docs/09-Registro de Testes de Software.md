@@ -66,3 +66,27 @@
 | **Resultado obtido (RO)**    | O usuário visualiza seus agendamentos.                                                                                                              |
 | **Avaliação**                | RE = RO → **Não pegou erro**                                                                                         |
 | **Evidência**                | ![Evidência](https://github.com/user-attachments/assets/365c762b-cc83-460a-a6bc-e6f5a0281e54)                                                       |
+
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT07 – Reagendar horários como barbeiro                                      |
+| **Pré-condições**             | Estar logado tendo um cadastro como barbeiro                                 |
+| **Procedimento (passo a passo)** | 1. Logar como barbeiro para acessar a página de agendamentos <br>2. Clicar em um horário agendado para exibição dos detalhes <br>3. Clicar em "Remarcar" <br>4. Escolher um novo horário <br>5. Confirmar a remarcação |
+| **Dados de entrada**          | Data: 08/06/2025 <br> Horário: 20:30                                         |
+| **Resultado esperado (RE)**   | Mensagem de sucesso informando que o horário foi remarcado                   |
+| **Resultado obtido (RO)**     | Mensagem foi exibida após o sucesso da execução                              |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                                                  |
+| **Evidência (print screen)**  | ![Capturar3](https://github.com/user-attachments/assets/c8151c23-6229-448e-8922-ff5fdb0e90cc) |
+
+
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT08 – Cancelar horários como barbeiro                                       |
+| **Pré-condições**             | Estar logado tendo um cadastro como barbeiro                                 |
+| **Procedimento (passo a passo)** | 1. Logar como barbeiro para acessar a página de agendamentos <br>2. Clicar em um horário agendado para exibição dos detalhes <br>3. Clicar em "Cancelar" para anular o agendamento |
+| **Dados de entrada**          | Data: 08/06/2025 <br> Horário: 20:45                                         |
+| **Resultado esperado (RE)**   | Mensagem de sucesso informando que o horário foi cancelado                   |
+| **Resultado obtido (RO)**     | Mensagem foi exibida após o sucesso do cancelamento                          |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                                                  |
+| **Evidência (print screen)**  | ![Capturar4](https://github.com/user-attachments/assets/45816f11-0cb5-4d3c-896a-8f4fe08cf396) |
+
