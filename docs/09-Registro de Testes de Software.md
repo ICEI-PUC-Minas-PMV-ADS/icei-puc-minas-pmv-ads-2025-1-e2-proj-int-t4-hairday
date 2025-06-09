@@ -69,7 +69,7 @@
 
 | **Campo**                      | **Descrição**                                                                 |
 |-------------------------------|------------------------------------------------------------------------------|
-| **Caso de Teste**             | CT07 – Reagendar horários como barbeiro                                      |
+| **Caso de Teste**             | CT 007 – Reagendar horários como barbeiro                                      |
 | **Pré-condições**             | Estar logado tendo um cadastro como barbeiro                                 |
 | **Procedimento (passo a passo)** | 1. Logar como barbeiro para acessar a página de agendamentos <br>2. Clicar em um horário agendado para exibição dos detalhes <br>3. Clicar em "Remarcar" <br>4. Escolher um novo horário <br>5. Confirmar a remarcação |
 | **Dados de entrada**          | Data: 08/06/2025 <br> Horário: 20:30                                         |
@@ -81,7 +81,7 @@
 
 | **Campo**                      | **Descrição**                                                                 |
 |-------------------------------|------------------------------------------------------------------------------|
-| **Caso de Teste**             | CT08 – Cancelar horários como barbeiro                                       |
+| **Caso de Teste**             | CT 008 – Cancelar horários como barbeiro                                       |
 | **Pré-condições**             | Estar logado tendo um cadastro como barbeiro                                 |
 | **Procedimento (passo a passo)** | 1. Logar como barbeiro para acessar a página de agendamentos <br>2. Clicar em um horário agendado para exibição dos detalhes <br>3. Clicar em "Cancelar" para anular o agendamento |
 | **Dados de entrada**          | Data: 08/06/2025 <br> Horário: 20:45                                         |
@@ -89,4 +89,49 @@
 | **Resultado obtido (RO)**     | Mensagem foi exibida após o sucesso do cancelamento                          |
 | **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                                                  |
 | **Evidência (print screen)**  | ![Capturar4](https://github.com/user-attachments/assets/45816f11-0cb5-4d3c-896a-8f4fe08cf396) |
+
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT 009 – Cadastrar Barbeiro                                                  |
+| **Pré-condições**             | Estar na página de login                                                     |
+| **Procedimento (passo a passo)** | 1. Clicar em "Cadastrar-se como Barbeiro" <br>2. Preencher o formulário com dados únicos e utilizar o CNPJ de uma barbearia já cadastrada <br>3. Clicar no botão "Enviar" |
+| **Dados de entrada**          | CPF: 443.545.757-67 <br>Nome: José Maria da Silva <br>Email: testebarbeiro@gmail.com <br>Senha: 123 <br>Confirmar senha: 123 <br>Cidade: Belo Horizonte <br>CNPJ: 22222222000102 |
+| **Resultado esperado (RE)**   | O usuário é redirecionado à página de escolha de horários e dias da semana   |
+| **Resultado obtido (RO)**     | O usuário foi redirecionado à página de escolha de horários e dias da semana |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                                                  |
+| **Evidência (print screen)**  | ![Untitled](https://github.com/user-attachments/assets/daebed2f-9e9c-421d-a36a-7424b759fac1) |
+
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT 010 – Escolher dias e horários de atendimento (Barbeiro)                                                  |
+| **Pré-condições**             | Ter feito o primeiro passo do cadastro do Barbeiro (CT 009)                                                    |
+| **Procedimento (passo a passo)** | 1. Selecionar as caixas com os dias da semana e os horário em que se deseja realizar atendimentos <br>2. Clicar no botão "Salvar e Continuar" |
+| **Dados de entrada**          | Dias da semana:  Domingo, Segunda-feira e Terça-feira <br> Horários: 08:00, 09:00 e 10:00 |
+| **Resultado esperado (RE)**   | O usuário é redirecionado à página de definição de serviços e preços   |
+| **Resultado obtido (RO)**     | O usuário foi redirecionado à página de definição de serviços e preços |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                                                  |
+| **Evidência (print screen)**  | ![Screenshot 2025-06-08 202419](https://github.com/user-attachments/assets/f5e9f73d-fc10-45a3-96fa-fb5a3c1f392f)|
+
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT 011 – Definir serviços oferecidos e preços (barbeiro)                                                  |
+| **Pré-condições**             | Ter escolhido os dias e horários de atendimento                                                    |
+| **Procedimento (passo a passo)** | 1. Selecionar as caixas com os serviços que serão oferecidos <br>2. Preencher os campos correspondentes com os preços |
+| **Dados de entrada**          | Serviços: Cabelo, Barba  <br> Preços: 11 (Cabelo), 22 (Barba) |
+| **Resultado esperado (RE)**   | Os dados são salvos e o usuário é redirecionado à página de login|
+| **Resultado obtido (RO)**     | O usuário foi redirecionado à página de login. Não ocorreram erros |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                                                  |
+| **Evidência (print screen)**  |![Screenshot 2025-06-08 202719](https://github.com/user-attachments/assets/793ef226-6cdd-4fd6-a48d-601f5a858485) |
+
+| **Campo**                      | **Descrição**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Caso de Teste**             | CT 012 – Escolher barbearia                                                  |
+| **Pré-condições**             | Ter buscado o nome de uma barbearia, ou ter selecionado um dos atalhos de busca (Barba,Cabelo,Massagem,SPA). Estar logado.    |
+| **Procedimento (passo a passo)** | 1. Visualizar a lista de barbearias <br>2. Escolher uma barbearia e clicar em "Ver Barbearia"|
+| **Dados de entrada**          | Atalho da homepage: "Cabelo" |
+| **Resultado esperado (RE)**   | O usuário é redirecionado à página da barbearia correspondente|
+| **Resultado obtido (RO)**     | O usuário foi redirecionado à página da barbearia correspondente |
+| **Avaliação (pegou / não pegou erro)** | RE = RO → Não pegou erro                                                  |
+| **Evidência (print screen)**  |![Screenshot 2025-06-08 203720](https://github.com/user-attachments/assets/c23f942c-dd0d-44e3-8129-4723b592feba)|
+
 
