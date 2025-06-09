@@ -5,7 +5,7 @@
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Caso de Teste**            | CT 003 – Cadastrar a barbearia                                                                                                                     |
 | **Pré-condições**            | Criar uma nova barbearia                                                                                                                           |
-| **Procedimento**             | 1) O usuário acessa a página "Cadastre sua barbearia"<br>2) O usuário insere os dados da barbearia<br>3) O usuário seleciona "Cadastrar"<br>4) O usuário seleciona um horário disponível |
+| **Procedimento**             | 1) O usuário acessa a página "Cadastre sua barbearia"<br>2) O usuário insere os dados da barbearia<br>3) O usuário seleciona "Cadastrar"<br> |
 | **Dados de entrada**         | Barbearia: Corte Top<br>Cidade: Belo Horizonte<br>CNPJ: 12.323.333/333-34<br>Telefone: 31998295467<br>E-mail: cortetop@gmail.com<br>Senha: 1234<br>Confirmar senha: 1234<br>Endereço: Rua das Flores |
 | **Resultado esperado (RE)**  | O usuário faz o cadastro de sua barbearia e é redirecionado para a página "Login", onde é possível fazer o login.                                |
 | **Resultado obtido (RO)**    | Depois de programar, o usuário fez o login.                                                                                                       |
