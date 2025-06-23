@@ -14,4 +14,5 @@ Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do proje
 
 ## Conjunto de Slides (Estrutura)
 
+[Apresentação Hairday Etapa 5.pdf](https://github.com/user-attachments/files/20856001/Apresentacao.Hairday.Etapa.5.pdf)
 
